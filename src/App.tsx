@@ -92,17 +92,17 @@ function Cv() {
   return <div className="cv"></div>;
 }
 
-function CvContainer() {
+function CvSection() {
   return (
-    <main className="cv-container">
+    <main className="cv-section">
       <Cv />
     </main>
   );
 }
 
-function Sidebar() {
+function FormSection() {
   return (
-    <aside className="sidebar">
+    <aside className="form-section">
       <HeaderForm />
       <EducationForm />
       <ExperienceForm />
@@ -113,8 +113,8 @@ function Sidebar() {
 function App() {
   return (
     <>
-      <Sidebar />
-      <CvContainer />
+      <FormSection />
+      <CvSection />
     </>
   );
 }

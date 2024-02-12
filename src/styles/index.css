@@ -40,19 +40,19 @@ body {
   display: flex;
 }
 
-.sidebar,
-.cv-container {
+.form-section,
+.cv-section {
   display: flex;
   padding: 40px;
   gap: 40px;
 }
 
-.cv-container {
+.cv-section {
   flex: 1;
   justify-content: center;
 }
 
-.sidebar {
+.form-section {
   flex-direction: column;
 }
 
@@ -61,7 +61,7 @@ form,
   border-radius: 5px;
 }
 
-/* Sidebar */
+/* form-section */
 
 form {
   width: 230px;
@@ -107,7 +107,7 @@ input::placeholder {
   margin-top: 9px;
 }
 
-/* cv-container */
+/* cv-section */
 
 .cv {
   --cv-width: 800px;
@@ -117,7 +117,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) {
-  .sidebar {
+  .form-section {
     width: 0;
     display: none;
   }
