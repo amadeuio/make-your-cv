@@ -2,8 +2,14 @@ import HeaderForm from "./components/HeaderForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 
+import HeaderCv from "./components/HeaderCv";
+
 function Cv() {
-  return <div className="cv"></div>;
+  return (
+    <div className="cv">
+      <HeaderCv />
+    </div>
+  );
 }
 
 function CvSection() {
