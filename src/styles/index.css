@@ -142,6 +142,7 @@ input::placeholder {
 }
 
 button {
+  border: 1px solid;
   border-radius: 6px;
   padding: 12px 20px;
   font-size: 12px;
@@ -150,10 +151,11 @@ button {
 }
 
 button.clear-button {
-  border: 1px solid var(--slate-300);
+  border-color: var(--slate-300);
 }
 
 button.save-button {
+  border-color: var(--blue);
   color: var(--white);
   background-color: var(--blue);
 }
