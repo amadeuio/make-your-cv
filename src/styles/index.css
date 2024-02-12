@@ -8,12 +8,13 @@
 }
 
 :root {
-  --slate-50: #f8fafc;
-  --slate-50-hover: #ebeef2;
+  --slate-50: #f4f7fa;
+  --slate-50-hover: #e0e3e8;
   --slate-100: #edf0f6;
   --slate-200: #e6edf6;
   --slate-300: #cbd5e1;
   --slate-400: #94a3b8;
+  --slate-400-placeholder: #9eaab7;
   --slate-500: #64748b;
   --slate-600: #475569;
   --slate-700: #334155;
@@ -58,7 +59,7 @@ body {
 
 form,
 .cv {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* form-section */
@@ -80,7 +81,7 @@ legend {
 
 input {
   padding: 13px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--slate-50);
   transition: background-color 0.3s ease;
 }
@@ -94,7 +95,7 @@ input:focus {
 }
 
 input::placeholder {
-  color: var(--slate-400);
+  color: var(--slate-400-placeholder);
 }
 
 .input-container {
