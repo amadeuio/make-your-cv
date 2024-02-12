@@ -5,6 +5,7 @@
 :root {
   --white: #ffffff;
   --blue: #178fff;
+  --blue-hover: #166fc3;
 }
 
 :root {
@@ -132,6 +133,37 @@ input::placeholder {
 
 .input-container input {
   margin-top: 9px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+button {
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button.clear-button {
+  border: 1px solid var(--slate-300);
+}
+
+button.save-button {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+button.save-button:hover {
+  background-color: var(--blue-hover);
+}
+
+button.clear-button:hover {
+  background-color: var(--slate-50-hover);
 }
 
 /* cv-section */

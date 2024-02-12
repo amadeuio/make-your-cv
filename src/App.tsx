@@ -1,3 +1,11 @@
+function Button(props) {
+  return (
+    <button className={props.className} onClick={props.onClick}>
+      {props.label}
+    </button>
+  );
+}
+
 const ExpandMoreIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +59,10 @@ function HeaderForm() {
           <label htmlFor="address">Address</label>
           <input type="text" id="address" name="address" placeholder="Enter your address" />
         </div>
+        <div className="button-container">
+          <Button className="clear-button" label="Clear" />
+          <Button className="save-button" label="Save" />
+        </div>
       </fieldset>
     </form>
   );
@@ -83,6 +95,10 @@ function EducationForm() {
         <div className="input-container">
           <label htmlFor="location">Location</label>
           <input type="text" id="location" name="location" />
+        </div>
+        <div className="button-container">
+          <Button className="clear-button" label="Clear" />
+          <Button className="save-button" label="Save" />
         </div>
       </fieldset>
     </form>
@@ -120,6 +136,10 @@ function ExperienceForm() {
         <div className="input-container">
           <label htmlFor="description">Description</label>
           <textarea id="description" name="description"></textarea>
+        </div>
+        <div className="button-container">
+          <Button className="clear-button" label="Clear" />
+          <Button className="save-button" label="Save" />
         </div>
       </fieldset>
     </form>
