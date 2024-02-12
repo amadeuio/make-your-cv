@@ -37,15 +37,24 @@ body {
   background-color: var(--slate-100);
 }
 
+:root {
+  --spacing: 50px;
+}
+
 #root {
   display: flex;
+  padding: var(--spacing);
+  padding-right: 0;
+}
+
+.form-section {
+  gap: var(--spacing);
+  margin-right: var(--spacing);
 }
 
 .form-section,
 .cv-section {
   display: flex;
-  padding: 40px;
-  gap: 40px;
 }
 
 .cv-section {
@@ -55,6 +64,7 @@ body {
 
 .form-section {
   flex-direction: column;
+  align-items: center;
 }
 
 form,
@@ -62,16 +72,32 @@ form,
   border-radius: 10px;
 }
 
+.vertical-line {
+  width: 1px;
+  border-left: 1px solid var(--slate-300);
+}
+
 /* form-section */
 
 form {
-  width: 230px;
+  width: 240px;
   background-color: var(--white);
   padding: 30px;
 }
 
 legend {
   font-size: 20px;
+}
+
+.legend-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend-container svg {
+  height: 20px;
+  width: auto;
 }
 
 label,
@@ -122,4 +148,19 @@ input::placeholder {
     width: 0;
     display: none;
   }
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: var(--slate-400);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-600);
 }

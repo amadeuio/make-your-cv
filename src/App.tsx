@@ -1,8 +1,40 @@
+const ExpandMoreIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill="var(--slate-800)">
+    <path
+      d="M479.889 713q-8.889 0-17.339-3.545Q454.1 705.909 449 699L250 502q-12-13.25-11.5-32.125T251 437.5q15-14.5 
+    33-13t31 13.5l165 165 166-165q12.5-13 31.75-13.5T710 438.429q14 13.428 13 32.5Q722 490 709 502L512 699q-6.167 
+    6.909-14.694 10.455Q488.778 713 479.889 713Z"
+    />
+  </svg>
+);
+
+const ExpandLessIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill="var(--slate-800)">
+    <path
+      d="M251 699q-13-13-13.5-32t13.5-32l198-198q5-5 13.5-9t17.5-4q9 0 17.5 4t14.5 9l198 197q13 14 13 32.5T710 
+    698q-14 13-33 13t-32-13L480 533 315 700q-13 13-31.5 12.5T251 699Z"
+    />
+  </svg>
+);
+
 function HeaderForm() {
   return (
     <form className="header-form">
       <fieldset>
-        <legend>Header</legend>
+        <div className="legend-container">
+          <legend>Header</legend>
+          <ExpandLessIcon />
+        </div>
         <div className="input-container">
           <label htmlFor="fullName">Full Name</label>
           <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" />
@@ -28,7 +60,10 @@ function EducationForm() {
   return (
     <form className="education-form">
       <fieldset>
-        <legend>Education</legend>
+        <div className="legend-container">
+          <legend>Education</legend>
+          <ExpandLessIcon />
+        </div>
         <div className="input-container">
           <label htmlFor="school">School</label>
           <input type="text" id="school" name="school" />
@@ -58,7 +93,10 @@ function ExperienceForm() {
   return (
     <form className="experience-form">
       <fieldset>
-        <legend>Experience</legend>
+        <div className="legend-container">
+          <legend>Experience</legend>
+          <ExpandLessIcon />
+        </div>
         <div className="input-container">
           <label htmlFor="company">Company</label>
           <input type="text" id="company" name="company" />
@@ -110,10 +148,15 @@ function FormSection() {
   );
 }
 
+function VerticalLine() {
+  return <div className="vertical-line"></div>;
+}
+
 function App() {
   return (
     <>
       <FormSection />
+      <VerticalLine />
       <CvSection />
     </>
   );
