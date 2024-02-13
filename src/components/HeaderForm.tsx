@@ -1,33 +1,39 @@
-import { ChangeEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import Button from "./Button";
 
+interface headerData {
+  fullName: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
+const initialHeaderData: headerData = {
+  fullName: "",
+  email: "",
+  phone: "",
+  address: "",
+};
+
 function HeaderForm() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [headerData, setHeaderData] = useState<headerData>(initialHeaderData);
 
-  const handleFullNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFullName(e.target.value);
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPhone(e.target.value);
-  };
-
-  const handleAddressChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAddress(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setHeaderData({ ...headerData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ fullName, email, phone, address });
+    console.log(headerData);
   };
+
+  useEffect(() => {
+    console.log(headerData);
+  }, [headerData]); // Runs after every render when headerData changes
+
+  const { fullName, email, phone, address } = headerData;
 
   return (
     <form className="header-form" onSubmit={handleSubmit}>
@@ -44,7 +50,7 @@ function HeaderForm() {
             name="fullName"
             placeholder="Enter your full name"
             value={fullName}
-            onChange={handleFullNameChange}
+            onChange={handleChange}
           />
         </div>
         <div className="input-container">
@@ -55,7 +61,7 @@ function HeaderForm() {
             name="email"
             placeholder="Enter your email address"
             value={email}
-            onChange={handleEmailChange}
+            onChange={handleChange}
           />
         </div>
         <div className="input-container">
@@ -66,7 +72,7 @@ function HeaderForm() {
             name="phone"
             placeholder="Enter your phone number"
             value={phone}
-            onChange={handlePhoneChange}
+            onChange={handleChange}
           />
         </div>
         <div className="input-container">
@@ -77,7 +83,7 @@ function HeaderForm() {
             name="address"
             placeholder="Enter your address"
             value={address}
-            onChange={handleAddressChange}
+            onChange={handleChange}
           />
         </div>
         <div className="button-container">
