@@ -10,10 +10,10 @@ interface headerData {
 }
 
 const initialHeaderData: headerData = {
-  fullName: "",
-  email: "",
-  phone: "",
-  address: "",
+  fullName: "John Doe",
+  email: "johndoe@example.com",
+  phone: "+31 459 789 385",
+  address: "Breda, NL",
 };
 
 function HeaderForm() {
