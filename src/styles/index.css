@@ -81,7 +81,7 @@ form,
 /* svg */
 
 svg {
-  height: 20px;
+  height: 22px;
   width: auto;
 }
 
@@ -90,7 +90,10 @@ svg {
 }
 
 .header-cv svg {
+  height: 18px;
+  width: auto;
   fill: var(--white);
+  margin-right: 5px;
 }
 
 /* Scrollbar */
@@ -227,8 +230,15 @@ button.clear-button:hover {
 }
 
 .header-cv-contact {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: 600;
+}
+
+.header-cv-contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
