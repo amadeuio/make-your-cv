@@ -1,4 +1,4 @@
-import { useContext, ChangeEvent } from "react";
+import { useContext, ChangeEvent, FormEvent } from "react";
 import { FormDataContext } from "../App";
 
 import Button from "./Button";
@@ -12,6 +12,23 @@ function EducationForm() {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEducationData({ ...educationData, [name]: value });
+  };
+
+  const handleClear = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setEducationData({
+      school: "",
+      qualification: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+    });
+    console.log("Clear detected:", educationData);
+  };
+
+  const handleSave = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("Save detected", educationData);
   };
 
   const { school, qualification, startDate, endDate, location } = educationData;
@@ -62,8 +79,8 @@ function EducationForm() {
           />
         </div>
         <div className="button-container">
-          <Button className="clear-button" label="Clear" onClick={() => {}} />
-          <Button className="save-button" label="Save" onClick={() => {}} />
+          <Button className="clear-button" label="Clear" onClick={handleClear} />
+          <Button className="save-button" label="Save" onClick={handleSave} />
         </div>
       </fieldset>
     </form>
