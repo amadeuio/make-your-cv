@@ -15,7 +15,7 @@ function ExperienceCv() {
         .map(() => (
           <div className="experience-item cv-item">
             <div className="experience-title cv-title">
-              {position}, {company}
+              {company ? `${position}, ${company}` : position}
             </div>
             {location && (
               <div className="experience-location cv-location">
