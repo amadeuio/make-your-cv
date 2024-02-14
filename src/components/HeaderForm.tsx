@@ -18,9 +18,9 @@ function HeaderForm() {
     console.log("Clear detected:", headerData);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
+  const handleSave = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log("Submit detected:", headerData);
+    console.log("Save detected:", headerData);
   };
 
   const { fullName, email, phone, address } = headerData;
@@ -77,20 +77,8 @@ function HeaderForm() {
           />
         </div>
         <div className="button-container">
-          <Button
-            className="clear-button"
-            label="Clear"
-            onClick={() => {
-              handleClear;
-            }}
-          />
-          <Button
-            className="save-button"
-            label="Save"
-            onClick={() => {
-              handleSubmit;
-            }}
-          />
+          <Button className="clear-button" label="Clear" onClick={handleClear} />
+          <Button className="save-button" label="Save" onClick={handleSave} />
         </div>
       </fieldset>
     </form>
