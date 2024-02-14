@@ -1,8 +1,8 @@
 import { useContext, ChangeEvent } from "react";
 import { FormDataContext } from "../App";
 
-import ExpandLessIcon from "../icons/ExpandLessIcon";
 import Button from "./Button";
+import ExpandLessIcon from "../icons/ExpandLessIcon";
 
 function EducationForm() {
   const { educationData, setEducationData } = useContext(FormDataContext)!;
