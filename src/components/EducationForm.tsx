@@ -3,21 +3,23 @@ import Button from "./Button";
 
 import { ChangeEvent, useState } from "react";
 
+const initialEducationData = {
+  school: "",
+  qualification: "",
+  startDate: "",
+  endDate: "",
+  location: "",
+};
+
 function EducationForm() {
-  const [formData, setFormData] = useState({
-    school: "",
-    qualification: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-  });
+  const [educationData, setEducationData] = useState(initialEducationData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setEducationData({ ...educationData, [name]: value });
   };
 
-  const { school, qualification, startDate, endDate, location } = formData;
+  const { school, qualification, startDate, endDate, location } = educationData;
 
   return (
     <form className="education-form">
