@@ -41,6 +41,17 @@ function EducationForm() {
           <ExpandLessIcon />
         </div>
         <div className="input-container">
+          <label htmlFor="qualification">Qualification</label>
+          <input
+            type="text"
+            id="qualification"
+            name="qualification"
+            placeholder="Enter the qualification name"
+            value={qualification}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-container">
           <label htmlFor="school">School</label>
           <input
             type="text"
@@ -52,13 +63,13 @@ function EducationForm() {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="qualification">Qualification</label>
+          <label htmlFor="location">Location</label>
           <input
             type="text"
-            id="qualification"
-            name="qualification"
-            placeholder="Enter the qualification name"
-            value={qualification}
+            id="location"
+            name="location"
+            placeholder="Enter the location"
+            value={location}
             onChange={handleChange}
           />
         </div>
@@ -84,17 +95,7 @@ function EducationForm() {
             onChange={handleChange}
           />
         </div>
-        <div className="input-container">
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="Enter the location"
-            value={location}
-            onChange={handleChange}
-          />
-        </div>
+
         <div className="button-container">
           <Button className="clear-button" label="Clear" onClick={handleClear} />
           <Button className="save-button" label="Save" onClick={handleSave} />
