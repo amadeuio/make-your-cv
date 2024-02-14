@@ -7,8 +7,6 @@ import ExpandLessIcon from "../icons/ExpandLessIcon";
 function ExperienceForm() {
   const { experienceData, setExperienceData } = useContext(FormDataContext)!;
 
-  console.log(experienceData);
-
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setExperienceData({ ...experienceData, [name]: value });

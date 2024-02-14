@@ -7,8 +7,6 @@ import ExpandLessIcon from "../icons/ExpandLessIcon";
 function EducationForm() {
   const { educationData, setEducationData } = useContext(FormDataContext)!;
 
-  console.log(educationData);
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEducationData({ ...educationData, [name]: value });
