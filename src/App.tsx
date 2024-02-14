@@ -77,7 +77,7 @@ const initialHeaderData: HeaderData = {
   address: "Breda, NL",
 };
 
-const initialEducationData = {
+const initialEducationData: EducationData = {
   school: "Cambridge",
   qualification: "Bachelor of Arts",
   startDate: "Jan 2013",
@@ -85,7 +85,7 @@ const initialEducationData = {
   location: "England",
 };
 
-const initialExperienceData = {
+const initialExperienceData: ExperienceData = {
   company: "Acme Corp",
   position: "Software Engineer",
   startDate: "Feb 2020",
