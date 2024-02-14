@@ -2,11 +2,11 @@ import React from "react";
 
 interface ButtonProps {
   className: string;
-  onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
   label: string;
+  onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ className, onClick, label }) => {
+const Button: React.FC<ButtonProps> = ({ className, label, onClick }) => {
   return (
     <button className={className} onClick={onClick}>
       {label}
