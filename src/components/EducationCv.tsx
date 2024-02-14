@@ -15,12 +15,14 @@ function EducationCv() {
         .map(() => (
           <div className="education-item cv-item">
             <div className="education-title cv-title">
-              {qualification}, {school}
+              {school ? `${qualification}, ${school}` : qualification}
             </div>
-            <div className="education-location cv-location">
-              <LocationIcon />
-              {location}
-            </div>
+            {location && (
+              <div className="education-location cv-location">
+                <LocationIcon />
+                {location}
+              </div>
+            )}
             <div className="education-date cv-date">
               {startDate} — {endDate}
             </div>
