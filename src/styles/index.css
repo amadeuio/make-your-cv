@@ -267,11 +267,11 @@ button.clear-button:hover {
 }
 
 .cv-item > * {
-  margin: 10px 0;
+  margin: 7px 0;
 }
 
 .cv-title {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .cv-location {
@@ -281,6 +281,10 @@ button.clear-button:hover {
 
 .cv-date {
   color: var(--slate-400);
+}
+
+.experience-description {
+  margin-top: 15px;
 }
 
 .experience-description li {
