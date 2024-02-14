@@ -42,6 +42,17 @@ function ExperienceForm() {
           <ExpandLessIcon />
         </div>
         <div className="input-container">
+          <label htmlFor="position">Position</label>
+          <input
+            type="text"
+            id="position"
+            name="position"
+            placeholder="Enter the position"
+            value={position}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-container">
           <label htmlFor="company">Company</label>
           <input
             type="text"
@@ -53,13 +64,13 @@ function ExperienceForm() {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="position">Position</label>
+          <label htmlFor="location">Location</label>
           <input
             type="text"
-            id="position"
-            name="position"
-            placeholder="Enter the position"
-            value={position}
+            id="location"
+            name="location"
+            placeholder="Enter the location"
+            value={location}
             onChange={handleChange}
           />
         </div>
@@ -82,17 +93,6 @@ function ExperienceForm() {
             name="endDate"
             placeholder="Enter the end date"
             value={endDate}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-container">
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="Enter the location"
-            value={location}
             onChange={handleChange}
           />
         </div>
