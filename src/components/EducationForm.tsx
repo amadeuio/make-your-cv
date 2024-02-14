@@ -42,7 +42,14 @@ function EducationForm() {
         </div>
         <div className="input-container">
           <label htmlFor="school">School</label>
-          <input type="text" id="school" name="school" value={school} onChange={handleChange} />
+          <input
+            type="text"
+            id="school"
+            name="school"
+            placeholder="Enter the shcool name"
+            value={school}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="qualification">Qualification</label>
@@ -50,6 +57,7 @@ function EducationForm() {
             type="text"
             id="qualification"
             name="qualification"
+            placeholder="Enter the qualification name"
             value={qualification}
             onChange={handleChange}
           />
@@ -57,16 +65,24 @@ function EducationForm() {
         <div className="input-container">
           <label htmlFor="startDate">Start Date</label>
           <input
-            type="date"
+            type="text"
             id="startDate"
             name="startDate"
+            placeholder="Enter the start date"
             value={startDate}
             onChange={handleChange}
           />
         </div>
         <div className="input-container">
           <label htmlFor="endDate">End Date</label>
-          <input type="date" id="endDate" name="endDate" value={endDate} onChange={handleChange} />
+          <input
+            type="text"
+            id="endDate"
+            name="endDate"
+            placeholder="Enter the end date"
+            value={endDate}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="location">Location</label>
@@ -74,6 +90,7 @@ function EducationForm() {
             type="text"
             id="location"
             name="location"
+            placeholder="Enter the location"
             value={location}
             onChange={handleChange}
           />
