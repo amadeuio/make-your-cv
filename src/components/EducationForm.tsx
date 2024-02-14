@@ -46,7 +46,7 @@ function EducationForm() {
             type="text"
             id="school"
             name="school"
-            placeholder="Enter the shcool name"
+            placeholder="Enter the school name"
             value={school}
             onChange={handleChange}
           />
