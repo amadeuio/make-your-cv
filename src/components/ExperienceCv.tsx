@@ -17,10 +17,12 @@ function ExperienceCv() {
             <div className="experience-title cv-title">
               {position}, {company}
             </div>
-            <div className="experience-location cv-location">
-              <LocationIcon />
-              {location}
-            </div>
+            {location && (
+              <div className="experience-location cv-location">
+                <LocationIcon />
+                {location}
+              </div>
+            )}
             <div className="experience-date cv-date">
               {startDate} — {endDate}
             </div>
