@@ -1,18 +1,13 @@
+import { useContext, ChangeEvent } from "react";
+import { FormDataContext } from "../App";
+
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import Button from "./Button";
 
-import { ChangeEvent, useState } from "react";
-
-const initialEducationData = {
-  school: "",
-  qualification: "",
-  startDate: "",
-  endDate: "",
-  location: "",
-};
-
 function EducationForm() {
-  const [educationData, setEducationData] = useState(initialEducationData);
+  const { educationData, setEducationData } = useContext(FormDataContext)!;
+
+  console.log(educationData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
