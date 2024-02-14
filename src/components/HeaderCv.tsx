@@ -2,10 +2,10 @@ import MailIcon from "../icons/MailIcon";
 import PhoneIcon from "../icons/PhoneIcon";
 import LocationIcon from "../icons/LocationIcon";
 import { useContext } from "react";
-import { HeaderDataContext } from "../components/HeaderForm";
+import { FormDataContext } from "../App";
 
 function HeaderCv() {
-  const { headerData } = useContext(HeaderDataContext)!;
+  const { headerData } = useContext(FormDataContext)!;
   const { fullName, email, phone, address } = headerData;
 
   return (

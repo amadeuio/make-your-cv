@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps {
   className: string;
-  onClick: () => void;
+  onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
   label: string;
 }
 

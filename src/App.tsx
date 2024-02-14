@@ -2,10 +2,22 @@ import HeaderForm from "./components/HeaderForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import HeaderCv from "./components/HeaderCv";
-import { HeaderDataContext } from "./components/HeaderForm";
 
-import { useState } from "react";
-import { HeaderData } from "./components/HeaderForm";
+import { useState, createContext } from "react";
+
+interface HeaderData {
+  fullName: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
+interface FormDataContext {
+  headerData: HeaderData;
+  setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
+}
+
+export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
 
 function Cv() {
   return (
@@ -49,11 +61,11 @@ function App() {
   const [headerData, setHeaderData] = useState<HeaderData>(initialHeaderData);
 
   return (
-    <HeaderDataContext.Provider value={{ headerData, setHeaderData }}>
+    <FormDataContext.Provider value={{ headerData, setHeaderData }}>
       <FormSection />
       <VerticalLine />
       <CvSection />
-    </HeaderDataContext.Provider>
+    </FormDataContext.Provider>
   );
 }
 

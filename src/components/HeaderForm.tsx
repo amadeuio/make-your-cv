@@ -1,38 +1,32 @@
-import { createContext, useContext } from "react";
-import ExpandLessIcon from "../icons/ExpandLessIcon";
+import { useContext, ChangeEvent, FormEvent } from "react";
+import { FormDataContext } from "../App";
+
 import Button from "./Button";
-
-export interface HeaderData {
-  fullName: string;
-  email: string;
-  phone: string;
-  address: string;
-}
-
-interface HeaderDataContextType {
-  headerData: HeaderData;
-  setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
-}
-
-export const HeaderDataContext = createContext<HeaderDataContextType | undefined>(undefined);
+import ExpandLessIcon from "../icons/ExpandLessIcon";
 
 function HeaderForm() {
-  const { headerData, setHeaderData } = useContext(HeaderDataContext)!;
+  const { headerData, setHeaderData } = useContext(FormDataContext)!;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setHeaderData({ ...headerData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleClear = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(headerData);
+    setHeaderData({ fullName: "", email: "", phone: "", address: "" });
+    console.log("Clear detected:", headerData);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("Submit detected:", headerData);
   };
 
   const { fullName, email, phone, address } = headerData;
 
   return (
-    <form className="header-form" onSubmit={handleSubmit}>
+    <form className="header-form">
       <fieldset>
         <div className="legend-container">
           <legend>Header</legend>
@@ -83,8 +77,20 @@ function HeaderForm() {
           />
         </div>
         <div className="button-container">
-          <Button className="clear-button" label="Clear" onClick={() => {}} />
-          <Button className="save-button" label="Save" onClick={() => {}} />
+          <Button
+            className="clear-button"
+            label="Clear"
+            onClick={() => {
+              handleClear;
+            }}
+          />
+          <Button
+            className="save-button"
+            label="Save"
+            onClick={() => {
+              handleSubmit;
+            }}
+          />
         </div>
       </fieldset>
     </form>
