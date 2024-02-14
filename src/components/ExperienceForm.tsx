@@ -1,9 +1,10 @@
-import React, { ChangeEvent, useState } from "react";
-import Button from "./Button"; // Import Button component
+import { ChangeEvent, FormEvent, useState } from "react";
+
+import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 
 function ExperienceForm() {
-  const [experience, setExperience] = useState({
+  const [experienceData, setExperienceData] = useState({
     company: "",
     position: "",
     startDate: "",
@@ -14,20 +15,31 @@ function ExperienceForm() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setExperience((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setExperienceData({ ...experienceData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleClear = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", experience);
+    setExperienceData({
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
+    console.log("Clear detected:", experienceData);
   };
+
+  const handleSave = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("Save detected", experienceData);
+  };
+
+  const { company, position, startDate, endDate, location, description } = experienceData;
 
   return (
-    <form className="experience-form" onSubmit={handleSubmit}>
+    <form className="experience-form">
       <fieldset>
         <div className="legend-container">
           <legend>Experience</legend>
@@ -35,13 +47,7 @@ function ExperienceForm() {
         </div>
         <div className="input-container">
           <label htmlFor="company">Company</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={experience.company}
-            onChange={handleChange}
-          />
+          <input type="text" id="company" name="company" value={company} onChange={handleChange} />
         </div>
         <div className="input-container">
           <label htmlFor="position">Position</label>
@@ -49,7 +55,7 @@ function ExperienceForm() {
             type="text"
             id="position"
             name="position"
-            value={experience.position}
+            value={position}
             onChange={handleChange}
           />
         </div>
@@ -59,19 +65,13 @@ function ExperienceForm() {
             type="date"
             id="startDate"
             name="startDate"
-            value={experience.startDate}
+            value={startDate}
             onChange={handleChange}
           />
         </div>
         <div className="input-container">
           <label htmlFor="endDate">End Date</label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            value={experience.endDate}
-            onChange={handleChange}
-          />
+          <input type="date" id="endDate" name="endDate" value={endDate} onChange={handleChange} />
         </div>
         <div className="input-container">
           <label htmlFor="location">Location</label>
@@ -79,7 +79,7 @@ function ExperienceForm() {
             type="text"
             id="location"
             name="location"
-            value={experience.location}
+            value={location}
             onChange={handleChange}
           />
         </div>
@@ -88,12 +88,12 @@ function ExperienceForm() {
           <textarea
             id="description"
             name="description"
-            value={experience.description}
+            value={description}
             onChange={handleChange}></textarea>
         </div>
         <div className="button-container">
-          <Button className="clear-button" label="Clear" onClick={() => {}} />
-          <Button className="save-button" label="Save" onClick={() => {}} />
+          <Button className="clear-button" label="Clear" onClick={handleClear} />
+          <Button className="save-button" label="Save" onClick={handleSave} />
         </div>
       </fieldset>
     </form>
