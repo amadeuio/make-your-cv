@@ -42,6 +42,14 @@ interface FormDataContext {
 
 export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
 
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <h1 className="navbar-title">CV Generator</h1>
+    </nav>
+  );
+}
+
 function Cv() {
   return (
     <div className="cv">
@@ -108,19 +116,24 @@ function App() {
   const [experienceData, setExperienceData] = useState(initialExperienceData);
 
   return (
-    <FormDataContext.Provider
-      value={{
-        headerData,
-        setHeaderData,
-        educationData,
-        setEducationData,
-        experienceData,
-        setExperienceData,
-      }}>
-      <FormSection />
-      <VerticalLine />
-      <CvSection />
-    </FormDataContext.Provider>
+    <div className="app-container">
+      <Navbar />
+      <div className="main-content-container">
+        <FormDataContext.Provider
+          value={{
+            headerData,
+            setHeaderData,
+            educationData,
+            setEducationData,
+            experienceData,
+            setExperienceData,
+          }}>
+          <FormSection />
+          <VerticalLine />
+          <CvSection />
+        </FormDataContext.Provider>
+      </div>
+    </div>
   );
 }
 
