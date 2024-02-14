@@ -3,6 +3,7 @@ import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import HeaderCv from "./components/HeaderCv";
 import EducationCv from "./components/EducationCv";
+import ExperienceCv from "./components/ExperienceCv";
 
 import { useState, createContext } from "react";
 
@@ -46,6 +47,7 @@ function Cv() {
     <div className="cv">
       <HeaderCv />
       <EducationCv />
+      <ExperienceCv />
     </div>
   );
 }
