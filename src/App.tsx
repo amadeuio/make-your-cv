@@ -95,8 +95,11 @@ const initialExperienceData: ExperienceData = {
   startDate: "Feb 2020",
   endDate: "Oct 2023",
   location: "Madrid, Spain",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod quam, quis dignissim nulla tristique at. Morbi laoreet elit vel magna tincidunt, ac gravida lorem hendrerit.",
+  description: `
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+- Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+`,
 };
 
 function App() {

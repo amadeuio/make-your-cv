@@ -249,35 +249,40 @@ button.clear-button:hover {
   justify-content: center;
 }
 
-.education-container {
+.cv-container {
   padding: 60px;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
 }
 
-.education-container h1,
-.education-item {
+.cv-container h1,
+.cv-item {
   margin-bottom: 30px;
 }
 
-.education-container svg {
+.cv-container svg {
   width: 12px;
   margin-right: 5px;
 }
 
-.education-item > * {
-  margin: 7px 0;
+.cv-item > * {
+  margin: 10px 0;
 }
 
-.education-title {
+.cv-title {
   font-weight: 600;
 }
 
-.education-location {
+.cv-location {
   display: flex;
   align-items: center;
 }
 
-.education-date {
+.cv-date {
   color: var(--slate-400);
+}
+
+.experience-description li {
+  margin-top: 5px;
 }

@@ -8,23 +8,27 @@ function ExperienceCv() {
   const { company, position, startDate, endDate, location, description } = experienceData;
 
   return (
-    <div className="experience-container">
+    <div className="experience-container cv-container">
       <h1>Experience</h1>
       {Array(2)
         .fill(null)
         .map(() => (
-          <div className="experience-item">
-            <div className="experience-title">
+          <div className="experience-item cv-item">
+            <div className="experience-title cv-title">
               {position}, {company}
             </div>
-            <div className="experience-location">
+            <div className="experience-location cv-location">
               <LocationIcon />
               {location}
             </div>
-            <div className="experience-date">
+            <div className="experience-date cv-date">
               {startDate} — {endDate}
             </div>
-            <div className="experience-description">{description}</div>
+            <ul className="experience-description cv-description">
+              {description.split("\n").map((point, index) => (
+                <li key={index}>{point.trim()}</li>
+              ))}
+            </ul>
           </div>
         ))}
     </div>

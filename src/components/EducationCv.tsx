@@ -8,20 +8,20 @@ function EducationCv() {
   const { school, qualification, startDate, endDate, location } = educationData;
 
   return (
-    <div className="education-container">
+    <div className="education-container cv-container">
       <h1>Education</h1>
       {Array(2)
         .fill(null)
         .map(() => (
-          <div className="education-item">
-            <div className="education-title">
+          <div className="education-item cv-item">
+            <div className="education-title cv-title">
               {qualification}, {school}
             </div>
-            <div className="education-location">
+            <div className="education-location cv-location">
               <LocationIcon />
               {location}
             </div>
-            <div className="education-date">
+            <div className="education-date cv-date">
               {startDate} — {endDate}
             </div>
           </div>
