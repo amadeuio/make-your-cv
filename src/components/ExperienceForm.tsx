@@ -43,7 +43,14 @@ function ExperienceForm() {
         </div>
         <div className="input-container">
           <label htmlFor="company">Company</label>
-          <input type="text" id="company" name="company" value={company} onChange={handleChange} />
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Enter the company name"
+            value={company}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="position">Position</label>
@@ -51,6 +58,7 @@ function ExperienceForm() {
             type="text"
             id="position"
             name="position"
+            placeholder="Enter the position"
             value={position}
             onChange={handleChange}
           />
@@ -58,16 +66,24 @@ function ExperienceForm() {
         <div className="input-container">
           <label htmlFor="startDate">Start Date</label>
           <input
-            type="date"
+            type="text"
             id="startDate"
             name="startDate"
+            placeholder="Enter the start date"
             value={startDate}
             onChange={handleChange}
           />
         </div>
         <div className="input-container">
           <label htmlFor="endDate">End Date</label>
-          <input type="date" id="endDate" name="endDate" value={endDate} onChange={handleChange} />
+          <input
+            type="text"
+            id="endDate"
+            name="endDate"
+            placeholder="Enter the end date"
+            value={endDate}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="location">Location</label>
@@ -75,6 +91,7 @@ function ExperienceForm() {
             type="text"
             id="location"
             name="location"
+            placeholder="Enter the location"
             value={location}
             onChange={handleChange}
           />
@@ -84,6 +101,7 @@ function ExperienceForm() {
           <textarea
             id="description"
             name="description"
+            placeholder="Enter a description"
             value={description}
             onChange={handleChange}></textarea>
         </div>
