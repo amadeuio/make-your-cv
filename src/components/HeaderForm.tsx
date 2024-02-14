@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import Button from "./Button";
 
-interface headerData {
+export interface HeaderData {
   fullName: string;
   email: string;
   phone: string;
   address: string;
 }
 
-const initialHeaderData: headerData = {
-  fullName: "John Doe",
-  email: "johndoe@example.com",
-  phone: "+31 459 789 385",
-  address: "Breda, NL",
-};
+interface HeaderDataContextType {
+  headerData: HeaderData;
+  setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
+}
+
+export const HeaderDataContext = createContext<HeaderDataContextType | undefined>(undefined);
 
 function HeaderForm() {
-  const [headerData, setHeaderData] = useState<headerData>(initialHeaderData);
+  const { headerData, setHeaderData } = useContext(HeaderDataContext)!;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,10 +28,6 @@ function HeaderForm() {
     e.preventDefault();
     console.log(headerData);
   };
-
-  useEffect(() => {
-    console.log(headerData);
-  }, [headerData]); // Runs after every render when headerData changes
 
   const { fullName, email, phone, address } = headerData;
 
