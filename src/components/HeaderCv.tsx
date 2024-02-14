@@ -10,7 +10,7 @@ function HeaderCv() {
 
   return (
     <div className="header-cv">
-      <div className="header-cv-fullname">{fullName}</div>
+      <h1 className="header-cv-fullname">{fullName}</h1>
       <div className="header-cv-contact">
         <div className="header-cv-contact-item">
           <MailIcon />

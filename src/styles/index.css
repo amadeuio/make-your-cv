@@ -96,6 +96,11 @@ svg {
   margin-right: 5px;
 }
 
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -131,7 +136,7 @@ legend {
 
 label,
 legend {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 input,
@@ -230,11 +235,6 @@ button.clear-button:hover {
   height: 15%;
 }
 
-.header-cv-fullname {
-  font-size: 30px;
-  font-weight: 600;
-}
-
 .header-cv-contact {
   width: 50%;
   display: flex;
@@ -247,4 +247,37 @@ button.clear-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.education-container {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.education-container h1,
+.education-item {
+  margin-bottom: 30px;
+}
+
+.education-container svg {
+  width: 12px;
+  margin-right: 5px;
+}
+
+.education-item > * {
+  margin: 7px 0;
+}
+
+.education-title {
+  font-weight: 600;
+}
+
+.education-location {
+  display: flex;
+  align-items: center;
+}
+
+.education-date {
+  color: var(--slate-400);
 }
