@@ -17,6 +17,8 @@ function EducationForm() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const { school, qualification, startDate, endDate, location } = formData;
+
   return (
     <form className="education-form">
       <fieldset>
@@ -26,13 +28,7 @@ function EducationForm() {
         </div>
         <div className="input-container">
           <label htmlFor="school">School</label>
-          <input
-            type="text"
-            id="school"
-            name="school"
-            value={formData.school}
-            onChange={handleChange}
-          />
+          <input type="text" id="school" name="school" value={school} onChange={handleChange} />
         </div>
         <div className="input-container">
           <label htmlFor="qualification">Qualification</label>
@@ -40,7 +36,7 @@ function EducationForm() {
             type="text"
             id="qualification"
             name="qualification"
-            value={formData.qualification}
+            value={qualification}
             onChange={handleChange}
           />
         </div>
@@ -50,19 +46,13 @@ function EducationForm() {
             type="date"
             id="startDate"
             name="startDate"
-            value={formData.startDate}
+            value={startDate}
             onChange={handleChange}
           />
         </div>
         <div className="input-container">
           <label htmlFor="endDate">End Date</label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            value={formData.endDate}
-            onChange={handleChange}
-          />
+          <input type="date" id="endDate" name="endDate" value={endDate} onChange={handleChange} />
         </div>
         <div className="input-container">
           <label htmlFor="location">Location</label>
@@ -70,7 +60,7 @@ function EducationForm() {
             type="text"
             id="location"
             name="location"
-            value={formData.location}
+            value={location}
             onChange={handleChange}
           />
         </div>
