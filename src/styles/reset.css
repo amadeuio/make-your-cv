@@ -128,7 +128,8 @@ table {
   border-spacing: 0;
 }
 /* Manually added */
-input {
+input,
+textarea {
   border: none;
 }
 button {
@@ -139,6 +140,8 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
-  outline: none; 
+  outline: none;
 }
-
+textarea {
+  font: inherit;
+}

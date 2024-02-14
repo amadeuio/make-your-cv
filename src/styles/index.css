@@ -134,22 +134,26 @@ legend {
   font-weight: 600;
 }
 
-input {
+input,
+textarea {
   padding: 13px;
   border-radius: 10px;
   background-color: var(--slate-50);
   transition: background-color 0.3s ease;
 }
 
-input:hover {
+input:hover,
+textarea:hover {
   background-color: var(--slate-50-hover);
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: 1px solid var(--slate-900);
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--slate-400-placeholder);
 }
 
@@ -159,7 +163,8 @@ input::placeholder {
   margin-top: 30px;
 }
 
-.input-container input {
+.input-container input,
+.input-container textarea {
   margin-top: 9px;
 }
 
