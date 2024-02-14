@@ -253,14 +253,14 @@ button.clear-button:hover {
 }
 
 .header-cv-contact {
-  width: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-weight: 600;
 }
 
 .header-cv-contact-item {
+  margin: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;

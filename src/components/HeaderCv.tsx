@@ -12,18 +12,24 @@ function HeaderCv() {
     <div className="header-cv">
       <h1 className="header-cv-fullname">{fullName}</h1>
       <div className="header-cv-contact">
-        <div className="header-cv-contact-item">
-          <MailIcon />
-          {email}
-        </div>
-        <div className="header-cv-contact-item">
-          <PhoneIcon />
-          {phone}
-        </div>
-        <div className="header-cv-contact-item">
-          <LocationIcon />
-          {address}
-        </div>
+        {email && (
+          <div className="header-cv-contact-item">
+            <MailIcon />
+            {email}
+          </div>
+        )}
+        {phone && (
+          <div className="header-cv-contact-item">
+            <PhoneIcon />
+            {phone}
+          </div>
+        )}
+        {address && (
+          <div className="header-cv-contact-item">
+            <LocationIcon />
+            {address}
+          </div>
+        )}
       </div>
     </div>
   );
