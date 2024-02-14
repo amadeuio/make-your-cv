@@ -20,11 +20,22 @@ interface EducationData {
   location: string;
 }
 
+interface ExperienceData {
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  description: string;
+}
+
 interface FormDataContext {
   headerData: HeaderData;
   setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
   educationData: EducationData;
   setEducationData: React.Dispatch<React.SetStateAction<EducationData>>;
+  experienceData: ExperienceData;
+  setExperienceData: React.Dispatch<React.SetStateAction<ExperienceData>>;
 }
 
 export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
@@ -75,13 +86,30 @@ const initialEducationData = {
   location: "",
 };
 
+const initialExperienceData = {
+  company: "",
+  position: "",
+  startDate: "",
+  endDate: "",
+  location: "",
+  description: "",
+};
+
 function App() {
   const [headerData, setHeaderData] = useState(initialHeaderData);
   const [educationData, setEducationData] = useState(initialEducationData);
+  const [experienceData, setExperienceData] = useState(initialExperienceData);
 
   return (
     <FormDataContext.Provider
-      value={{ headerData, setHeaderData, educationData, setEducationData }}>
+      value={{
+        headerData,
+        setHeaderData,
+        educationData,
+        setEducationData,
+        experienceData,
+        setExperienceData,
+      }}>
       <FormSection />
       <VerticalLine />
       <CvSection />

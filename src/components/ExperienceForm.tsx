@@ -1,17 +1,13 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useContext, ChangeEvent, FormEvent } from "react";
+import { FormDataContext } from "../App";
 
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 
 function ExperienceForm() {
-  const [experienceData, setExperienceData] = useState({
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-  });
+  const { experienceData, setExperienceData } = useContext(FormDataContext)!;
+
+  console.log(experienceData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
