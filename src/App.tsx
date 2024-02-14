@@ -70,7 +70,6 @@ function VerticalLine() {
   return <div className="vertical-line"></div>;
 }
 
-// Default header data
 const initialHeaderData: HeaderData = {
   fullName: "John Doe",
   email: "johndoe@example.com",
@@ -79,20 +78,21 @@ const initialHeaderData: HeaderData = {
 };
 
 const initialEducationData = {
-  school: "",
-  qualification: "",
-  startDate: "",
-  endDate: "",
-  location: "",
+  school: "Cambridge",
+  qualification: "Bachelor of Arts",
+  startDate: "Jan 2013",
+  endDate: "Jan 2017",
+  location: "England",
 };
 
 const initialExperienceData = {
-  company: "",
-  position: "",
-  startDate: "",
-  endDate: "",
-  location: "",
-  description: "",
+  company: "Acme Corp",
+  position: "Software Engineer",
+  startDate: "Feb 2020",
+  endDate: "Oct 2023",
+  location: "Madrid, Spain",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod quam, quis dignissim nulla tristique at. Morbi laoreet elit vel magna tincidunt, ac gravida lorem hendrerit.",
 };
 
 function App() {
