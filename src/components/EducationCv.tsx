@@ -8,7 +8,6 @@ function EducationCv() {
   const { school, qualification, startDate, endDate, location } = educationData;
 
   const isEducationDataEmpty = Object.values(educationData).every((value) => value === "");
-  console.log(isEducationDataEmpty);
 
   if (isEducationDataEmpty) {
     return null;
