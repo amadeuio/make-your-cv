@@ -1,11 +1,13 @@
 import HeaderForm from "./components/HeaderForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
+
 import HeaderCv from "./components/HeaderCv";
 import EducationCv from "./components/EducationCv";
 import ExperienceCv from "./components/ExperienceCv";
 
 import { useState, createContext } from "react";
+import Button from "./components/Button";
 
 interface HeaderData {
   fullName: string;
@@ -72,8 +74,14 @@ function FormSection() {
   return (
     <aside className="form-section">
       <HeaderForm />
+
+      <div className="form-title">Education</div>
       <EducationForm />
+      <Button className="add-new-button" label={"+ Add new"} onClick={() => {}} />
+
+      <div className="form-title">Experiece</div>
       <ExperienceForm />
+      <Button className="add-new-button" label={"+ Add new"} onClick={() => {}} />
     </aside>
   );
 }
