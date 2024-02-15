@@ -7,6 +7,12 @@ function ExperienceCv() {
   const { experienceData } = useContext(FormDataContext)!;
   const { company, position, startDate, endDate, location, description } = experienceData;
 
+  const isExperienceDataEmpty = Object.values(experienceData).every((value) => value === "");
+
+  if (isExperienceDataEmpty) {
+    return null;
+  }
+
   return (
     <div className="experience-container cv-container">
       <h1>Experience</h1>
@@ -24,7 +30,8 @@ function ExperienceCv() {
               </div>
             )}
             <div className="experience-date cv-date">
-              {startDate} — {endDate}
+              {startDate}
+              {endDate && ` — ${endDate}`}
             </div>
             <ul className="experience-description cv-description">
               {description.split("\n").map((point, index) => (
