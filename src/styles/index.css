@@ -156,7 +156,8 @@ legend {
 }
 
 .legend-fullname-preview,
-.legend-qualification-preview {
+.legend-qualification-preview,
+.legend-company-preview {
   white-space: nowrap;
   overflow: hidden;
   display: flex;
@@ -171,6 +172,10 @@ legend {
 
 .legend-qualification-preview {
   width: 112px;
+}
+
+.legend-company-preview {
+  width: 100px;
 }
 
 .legend-dash {
@@ -264,6 +269,10 @@ button.clear-button:hover {
 
 .education-form .dropdown-menu.open {
   max-height: 600px;
+}
+
+.experience-form .dropdown-menu.open {
+  max-height: 700px;
 }
 
 /* Form section responsiveness */

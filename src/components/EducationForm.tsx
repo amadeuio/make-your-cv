@@ -7,7 +7,7 @@ import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 function EducationForm() {
   const { educationData, setEducationData } = useContext(FormDataContext)!;
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
