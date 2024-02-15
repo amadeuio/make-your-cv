@@ -141,14 +141,32 @@ form {
   padding: 30px;
 }
 
-legend {
-  font-size: 20px;
-}
-
 .legend-container {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+}
+
+legend {
+  font-size: 20px;
+}
+
+.legend-content {
+  display: flex;
+}
+
+.legend-fullname {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--slate-400);
+}
+
+.legend-dash {
+  margin: 0 8px;
 }
 
 label,
@@ -158,6 +176,7 @@ legend {
 
 input,
 textarea {
+  margin: 0 1px; /* Gives space for focus outline */
   padding: 13px;
   border-radius: 10px;
   background-color: var(--slate-50);
@@ -221,6 +240,18 @@ button.save-button:hover {
 
 button.clear-button:hover {
   background-color: var(--slate-50-hover);
+}
+
+/* Drop down menu */
+
+.dropdown-menu {
+  overflow: hidden;
+  transition: max-height 0.3s;
+  max-height: 0px;
+}
+
+.dropdown-menu.open {
+  max-height: 500px;
 }
 
 /* Form section responsiveness */
