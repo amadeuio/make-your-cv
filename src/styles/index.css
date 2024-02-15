@@ -155,14 +155,22 @@ legend {
   display: flex;
 }
 
-.legend-fullname {
-  width: 140px;
+.legend-fullname-preview,
+.legend-qualification-preview {
   white-space: nowrap;
   overflow: hidden;
   display: flex;
   align-items: center;
   font-size: 16px;
   color: var(--slate-400);
+}
+
+.legend-fullname-preview {
+  width: 140px;
+}
+
+.legend-qualification-preview {
+  width: 112px;
 }
 
 .legend-dash {
@@ -250,8 +258,12 @@ button.clear-button:hover {
   max-height: 0px;
 }
 
-.dropdown-menu.open {
+.header-form .dropdown-menu.open {
   max-height: 500px;
+}
+
+.education-form .dropdown-menu.open {
+  max-height: 600px;
 }
 
 /* Form section responsiveness */

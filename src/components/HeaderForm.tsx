@@ -7,7 +7,7 @@ import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 function HeaderForm() {
   const { headerData, setHeaderData } = useContext(FormDataContext)!;
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -38,7 +38,7 @@ function HeaderForm() {
           <div className="legend-content">
             <legend>Header</legend>
             {!isOpen && fullName && (
-              <div className="legend-fullname">
+              <div className="legend-fullname-preview">
                 <span className="legend-dash">—</span>
                 {fullName}
               </div>
