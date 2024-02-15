@@ -7,6 +7,13 @@ function EducationCv() {
   const { educationData } = useContext(FormDataContext)!;
   const { school, qualification, startDate, endDate, location } = educationData;
 
+  const isEducationDataEmpty = Object.values(educationData).every((value) => value === "");
+  console.log(isEducationDataEmpty);
+
+  if (isEducationDataEmpty) {
+    return null;
+  }
+
   return (
     <div className="education-container cv-container">
       <h1>Education</h1>
@@ -24,7 +31,8 @@ function EducationCv() {
               </div>
             )}
             <div className="education-date cv-date">
-              {startDate} — {endDate}
+              {startDate}
+              {endDate && ` — ${endDate}`}
             </div>
           </div>
         ))}
