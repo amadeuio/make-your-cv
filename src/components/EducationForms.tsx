@@ -1,9 +1,9 @@
 import { useContext, ChangeEvent, FormEvent } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { FormDataContext } from "../App";
 import { UUID } from "../App";
-import Button from "./Button";
-import { v4 as uuidv4 } from "uuid";
 
+import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
@@ -23,23 +23,9 @@ function EducationForms() {
     );
   };
 
-  const handleClear = (id: UUID, e: FormEvent<HTMLButtonElement>) => {
+  const handleDelete = (id: UUID, e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setEducationArray((prevState) =>
-      prevState.map((edu) =>
-        edu.id === id
-          ? {
-              ...edu,
-              school: "",
-              qualification: "",
-              startDate: "",
-              endDate: "",
-              location: "",
-              isOpen: true,
-            }
-          : edu
-      )
-    );
+    setEducationArray((prevState) => prevState.filter((edu) => edu.id !== id));
   };
 
   const handleSave = (id: UUID, e: FormEvent<HTMLButtonElement>) => {
@@ -143,8 +129,8 @@ function EducationForms() {
               </ul>
 
               <div className="button-container">
-                <button className="clear-button" onClick={(e) => handleClear(data.id, e)}>
-                  Clear
+                <button className="delete-button" onClick={(e) => handleDelete(data.id, e)}>
+                  Delete
                 </button>
                 <button className="save-button" onClick={(e) => handleSave(data.id, e)}>
                   Save

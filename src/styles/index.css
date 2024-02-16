@@ -256,7 +256,7 @@ button.add-new-button {
   border-color: var(--slate-300);
 }
 
-button.clear-button {
+button.delete-button {
   border-color: var(--slate-300);
 }
 
@@ -274,7 +274,7 @@ button.save-button:hover {
   background-color: var(--blue-hover);
 }
 
-button.clear-button:hover {
+button.delete-button:hover {
   background-color: var(--slate-50-hover);
 }
 
