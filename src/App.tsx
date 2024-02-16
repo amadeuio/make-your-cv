@@ -7,7 +7,10 @@ import EducationCv from "./components/EducationCv";
 import ExperienceCv from "./components/ExperienceCv";
 
 import { useState, createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Button from "./components/Button";
+
+export type UUID = string;
 
 interface HeaderData {
   fullName: string;
@@ -16,12 +19,14 @@ interface HeaderData {
   address: string;
 }
 
-interface EducationData {
+export interface EducationObject {
+  id: UUID;
   school: string;
   qualification: string;
   startDate: string;
   endDate: string;
   location: string;
+  isOpen: boolean;
 }
 
 interface ExperienceData {
@@ -36,21 +41,21 @@ interface ExperienceData {
 interface FormDataContext {
   headerData: HeaderData;
   setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
-  educationData: EducationData;
-  setEducationData: React.Dispatch<React.SetStateAction<EducationData>>;
+  educationArray: EducationObject[];
+  setEducationArray: React.Dispatch<React.SetStateAction<EducationObject[]>>;
   experienceData: ExperienceData;
   setExperienceData: React.Dispatch<React.SetStateAction<ExperienceData>>;
 }
 
 export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
 
-function Navbar() {
+/* function Navbar() {
   return (
     <nav className="navbar">
       <h1 className="navbar-title">CV Generator</h1>
     </nav>
   );
-}
+} */
 
 function Cv() {
   return (
@@ -97,13 +102,26 @@ const initialHeaderData: HeaderData = {
   address: "Breda, NL",
 };
 
-const initialEducationData: EducationData = {
-  school: "Cambridge",
-  qualification: "Bachelor of Arts",
-  startDate: "Jan 2013",
-  endDate: "Jan 2017",
-  location: "England",
-};
+const initialEducationArray: EducationObject[] = [
+  {
+    id: uuidv4(),
+    school: "Cambridge",
+    qualification: "Bachelor of Arts",
+    startDate: "Jan 2013",
+    endDate: "Jan 2017",
+    location: "England",
+    isOpen: false,
+  },
+  {
+    id: uuidv4(),
+    school: "UB",
+    qualification: "Chemistry",
+    startDate: "Oct 2000",
+    endDate: "Nov 2005",
+    location: "Spain",
+    isOpen: false,
+  },
+];
 
 const initialExperienceData: ExperienceData = {
   company: "Acme Corp",
@@ -119,7 +137,7 @@ const initialExperienceData: ExperienceData = {
 
 function App() {
   const [headerData, setHeaderData] = useState(initialHeaderData);
-  const [educationData, setEducationData] = useState(initialEducationData);
+  const [educationArray, setEducationArray] = useState(initialEducationArray);
   const [experienceData, setExperienceData] = useState(initialExperienceData);
 
   return (
@@ -129,8 +147,8 @@ function App() {
           value={{
             headerData,
             setHeaderData,
-            educationData,
-            setEducationData,
+            educationArray,
+            setEducationArray,
             experienceData,
             setExperienceData,
           }}>
