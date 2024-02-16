@@ -1,6 +1,8 @@
 import { useContext, ChangeEvent, FormEvent } from "react";
 import { FormDataContext } from "../App";
 import { UUID } from "../App";
+import Button from "./Button";
+import { v4 as uuidv4 } from "uuid";
 
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
@@ -45,8 +47,24 @@ function EducationForms() {
     toggleDropdown(id);
   };
 
+  const handleAddNew = () => {
+    const newEducationEntry = {
+      id: uuidv4(),
+      school: "",
+      qualification: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      isOpen: true,
+    };
+
+    setEducationArray((prevState) => [...prevState, newEducationEntry]);
+  };
+
   return (
-    <>
+    <div className="education-forms">
+      <div className="form-title">Education</div>
+
       {educationArray.map((data) => (
         <form key={data.id} className="education-form">
           <fieldset>
@@ -136,7 +154,9 @@ function EducationForms() {
           </fieldset>
         </form>
       ))}
-    </>
+
+      <Button className="add-new-button" label={"+ Add new"} onClick={handleAddNew} />
+    </div>
   );
 }
 

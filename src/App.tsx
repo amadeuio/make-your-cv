@@ -1,6 +1,5 @@
 import HeaderForm from "./components/HeaderForm";
 import EducationForms from "./components/EducationForms";
-import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 
 import HeaderCv from "./components/HeaderCv";
@@ -77,21 +76,11 @@ function CvSection() {
 }
 
 function FormSection() {
-  const [educationArray] = useState(initialEducationArray);
-
   return (
     <aside className="form-section">
       <HeaderForm />
 
-      <div className="form-title">Education</div>
       <EducationForms />
-      <Button className="add-new-button" label={"+ Add new"} onClick={() => {}} />
-
-      <div className="form-title">Education 2</div>
-      {educationArray.map((education) => (
-        <EducationForm key={education.id} id={education.id} />
-      ))}
-      <Button className="add-new-button" label={"+ Add new"} onClick={() => {}} />
 
       <div className="form-title">Experiece</div>
       <ExperienceForm />
