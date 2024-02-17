@@ -145,7 +145,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+}
+
+.education-forms .form-title,
+.education-forms form,
+.education-forms button {
+  margin: 15px 0;
 }
 
 form {
