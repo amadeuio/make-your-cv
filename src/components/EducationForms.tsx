@@ -2,7 +2,7 @@ import { useContext, ChangeEvent, FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FormDataContext } from "../App";
 import { UUID } from "../App";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
@@ -48,7 +48,7 @@ function EducationForms() {
     setEducationArray((prevState) => [...prevState, newEducationEntry]);
   };
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result: DropResult) => {
     if (!result.destination) {
       return;
     }
