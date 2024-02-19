@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, Dispatch, SetStateAction } from "react";
 import { HeaderObject, EducationObject, ExperienceObject } from "./types";
 import { initialHeaderObject, initialEducationArray, initialExperienceArray } from "./initialData";
 
@@ -9,11 +9,11 @@ import CvSection from "./components/CvSection";
 
 interface FormDataContext {
   headerObject: HeaderObject;
-  setHeaderObject: React.Dispatch<React.SetStateAction<HeaderObject>>;
+  setHeaderObject: Dispatch<SetStateAction<HeaderObject>>;
   educationArray: EducationObject[];
-  setEducationArray: React.Dispatch<React.SetStateAction<EducationObject[]>>;
+  setEducationArray: Dispatch<SetStateAction<EducationObject[]>>;
   experienceArray: ExperienceObject[];
-  setExperienceArray: React.Dispatch<React.SetStateAction<ExperienceObject[]>>;
+  setExperienceArray: Dispatch<SetStateAction<ExperienceObject[]>>;
 }
 
 export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
