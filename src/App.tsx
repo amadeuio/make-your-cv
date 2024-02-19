@@ -12,11 +12,12 @@ import Button from "./components/Button";
 
 export type UUID = string;
 
-interface HeaderData {
+interface HeaderObject {
   fullName: string;
   email: string;
   phone: string;
   address: string;
+  isOpen: boolean;
 }
 
 export interface EducationObject {
@@ -39,8 +40,8 @@ interface ExperienceData {
 }
 
 interface FormDataContext {
-  headerData: HeaderData;
-  setHeaderData: React.Dispatch<React.SetStateAction<HeaderData>>;
+  headerObject: HeaderObject;
+  setHeaderObject: React.Dispatch<React.SetStateAction<HeaderObject>>;
   educationArray: EducationObject[];
   setEducationArray: React.Dispatch<React.SetStateAction<EducationObject[]>>;
   experienceData: ExperienceData;
@@ -93,11 +94,12 @@ function VerticalLine() {
   return <div className="vertical-line"></div>;
 }
 
-const initialHeaderData: HeaderData = {
+const initialHeaderObject: HeaderObject = {
   fullName: "John Doe",
   email: "johndoe@example.com",
   phone: "+31 459 789 385",
   address: "Breda, NL",
+  isOpen: false,
 };
 
 const initialEducationArray: EducationObject[] = [
@@ -134,7 +136,7 @@ const initialExperienceData: ExperienceData = {
 };
 
 function App() {
-  const [headerData, setHeaderData] = useState(initialHeaderData);
+  const [headerObject, setHeaderObject] = useState(initialHeaderObject);
   const [educationArray, setEducationArray] = useState(initialEducationArray);
   const [experienceData, setExperienceData] = useState(initialExperienceData);
 
@@ -143,8 +145,8 @@ function App() {
       <div className="main-content-container">
         <FormDataContext.Provider
           value={{
-            headerData,
-            setHeaderData,
+            headerObject,
+            setHeaderObject,
             educationArray,
             setEducationArray,
             experienceData,

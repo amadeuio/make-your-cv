@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent, FormEvent } from "react";
+import { useContext, ChangeEvent, FormEvent } from "react";
 import { FormDataContext } from "../App";
 
 import Button from "./Button";
@@ -6,21 +6,23 @@ import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 function HeaderForm() {
-  const { headerData, setHeaderData } = useContext(FormDataContext)!;
-  const [isOpen, setIsOpen] = useState(false);
+  const { headerObject, setHeaderObject } = useContext(FormDataContext)!;
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setHeaderObject((prevHeader) => ({
+      ...prevHeader,
+      isOpen: !prevHeader.isOpen,
+    }));
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setHeaderData({ ...headerData, [name]: value });
+    setHeaderObject({ ...headerObject, [name]: value });
   };
 
   const handleClear = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setHeaderData({ fullName: "", email: "", phone: "", address: "" });
+    setHeaderObject({ fullName: "", email: "", phone: "", address: "", isOpen: true });
   };
 
   const handleSave = (e: FormEvent<HTMLButtonElement>) => {
@@ -28,7 +30,7 @@ function HeaderForm() {
     toggleDropdown();
   };
 
-  const { fullName, email, phone, address } = headerData;
+  const { fullName, email, phone, address, isOpen } = headerObject;
 
   return (
     <form className="header-form">
@@ -95,6 +97,7 @@ function HeaderForm() {
               />
             </li>
           </ul>
+
           <div className="button-container">
             <Button className="clear-button" label="Clear" onClick={handleClear} />
             <Button className="save-button" label="Save" onClick={handleSave} />

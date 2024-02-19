@@ -5,8 +5,8 @@ import { useContext } from "react";
 import { FormDataContext } from "../App";
 
 function HeaderCv() {
-  const { headerData } = useContext(FormDataContext)!;
-  const { fullName, email, phone, address } = headerData;
+  const { headerObject } = useContext(FormDataContext)!;
+  const { fullName, email, phone, address } = headerObject;
 
   return (
     <div className="header-cv">
