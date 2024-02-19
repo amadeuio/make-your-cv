@@ -39,7 +39,7 @@ function EducationForm({ educationObject, setEducationArray }: EducationFormProp
   };
 
   return (
-    <form className="education-form">
+    <form>
       <fieldset>
         <div className="legend-container" onClick={toggleDropdown}>
           <div className="legend-content">
@@ -185,7 +185,7 @@ function EducationForms() {
         </Droppable>
       </DragDropContext>
 
-      <Button className="add-new-button" label={"+ Add new"} onClick={handleAddNew} />
+      <Button className="forms-add-new" label={"+ Add new"} onClick={handleAddNew} />
     </>
   );
 }

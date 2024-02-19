@@ -147,7 +147,7 @@ h1 {
   align-items: center;
 }
 
-.education-form {
+.forms-container form {
   margin: 15px 0; /* Requires margin on all items for drag & drop */
 }
 
@@ -155,7 +155,7 @@ h1 {
   margin-bottom: -15px;
 }
 
-.add-new-button {
+.forms-add-new {
   margin-top: -15px;
 }
 
@@ -261,7 +261,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button.add-new-button {
+button.forms-add-new {
   width: 100px;
   color: var(--slate-400);
   border-color: var(--slate-300);
@@ -277,7 +277,7 @@ button.save-button {
   background-color: var(--blue);
 }
 
-button.add-new-button:hover {
+button.forms-add-new:hover {
   background-color: var(--slate-300);
 }
 

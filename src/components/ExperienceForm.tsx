@@ -38,7 +38,7 @@ function ExperienceForm() {
   const { company, position, startDate, endDate, location, description } = experienceData;
 
   return (
-    <form className="experience-form">
+    <form>
       <fieldset>
         {/* Legend */}
         <div className="legend-container" onClick={toggleDropdown}>
@@ -132,4 +132,16 @@ function ExperienceForm() {
   );
 }
 
-export default ExperienceForm;
+function ExperienceForms() {
+  return (
+    <>
+      <div className="forms-title">Experience</div>
+      <div className="forms-container">
+        <ExperienceForm />
+      </div>
+      <Button className="forms-add-new" label={"+ Add new"} onClick={() => {}} />
+    </>
+  );
+}
+
+export default ExperienceForms;

@@ -1,6 +1,6 @@
 import HeaderForm from "./components/HeaderForm";
 import EducationForms from "./components/EducationForms";
-import ExperienceForm from "./components/ExperienceForm";
+import ExperienceForms from "./components/ExperienceForm";
 
 import HeaderCv from "./components/HeaderCv";
 import EducationCv from "./components/EducationCv";
@@ -8,7 +8,6 @@ import ExperienceCv from "./components/ExperienceCv";
 
 import { useState, createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Button from "./components/Button";
 
 export type UUID = string;
 
@@ -80,12 +79,8 @@ function FormSection() {
   return (
     <aside className="form-section">
       <HeaderForm />
-
       <EducationForms />
-
-      <div className="form-title">Experiece</div>
-      <ExperienceForm />
-      <Button className="add-new-button" label={"+ Add new"} onClick={() => {}} />
+      <ExperienceForms />
     </aside>
   );
 }
