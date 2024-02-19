@@ -22,8 +22,8 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setExperienceArray({ ...experienceObject, [name]: value });
+    //const { name, value } = e.target;
+    return e.target;
   };
 
   const handleClear = (e: FormEvent<HTMLButtonElement>) => {
