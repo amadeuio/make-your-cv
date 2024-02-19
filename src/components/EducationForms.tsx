@@ -39,7 +39,7 @@ function EducationForm({ educationObject, setEducationArray }: EducationFormProp
   };
 
   return (
-    <form>
+    <form className="education-form">
       <fieldset>
         <div className="legend-container" onClick={toggleDropdown}>
           <div className="legend-content">

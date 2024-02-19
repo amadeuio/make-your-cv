@@ -36,7 +36,7 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
   };
 
   return (
-    <form>
+    <form className="experience-form">
       <fieldset>
         {/* Legend */}
         <div className="legend-container" onClick={toggleDropdown}>
