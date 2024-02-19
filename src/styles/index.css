@@ -238,10 +238,11 @@ button {
 }
 
 button.forms-add-new,
-.download-button {
-  height: 50px;
+button.download-button {
+  padding: 14px 20px;
   color: var(--slate-400);
   border-color: var(--slate-300);
+  background-color: var(--slate-100);
   font-weight: 700;
   font-size: 16px;
 }
