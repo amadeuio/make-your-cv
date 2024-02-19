@@ -2,9 +2,7 @@ import HeaderForm from "./components/HeaderForm";
 import EducationForms from "./components/EducationForms";
 import ExperienceForms from "./components/ExperienceForms";
 
-import HeaderCv from "./components/HeaderCv";
-import EducationCv from "./components/EducationCv";
-import ExperienceCv from "./components/ExperienceCv";
+import CvSection from "./components/CvSection";
 
 import { useState, createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -58,26 +56,6 @@ export const FormDataContext = createContext<FormDataContext | undefined>(undefi
     </nav>
   );
 } */
-
-function Cv() {
-  return (
-    <div className="cv">
-      <HeaderCv />
-      <div className="body-cv">
-        <EducationCv />
-        <ExperienceCv />
-      </div>
-    </div>
-  );
-}
-
-function CvSection() {
-  return (
-    <main className="cv-section">
-      <Cv />
-    </main>
-  );
-}
 
 function FormSection() {
   return (
