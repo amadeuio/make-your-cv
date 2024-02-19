@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { FormDataContext } from "../App";
-import LocationIcon from "../icons/LocationIcon";
 import { EducationObject } from "../App";
+
+import LocationIcon from "../icons/LocationIcon";
 
 interface EducationItemProps {
   educationObject: EducationObject;
@@ -32,13 +33,7 @@ function EducationItem({ educationObject }: EducationItemProps) {
 function EducationCv() {
   const { educationArray } = useContext(FormDataContext)!;
 
-  const isEducationEmpty = (educationObject: EducationObject) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { id, ...otherProps } = educationObject;
-    return Object.values(otherProps).every((value) => value === "" || value === null);
-  };
-
-  if (educationArray.every((educationObject) => isEducationEmpty(educationObject))) {
+  if (educationArray.length === 0) {
     return null;
   }
 
