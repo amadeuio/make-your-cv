@@ -158,16 +158,16 @@ function EducationForms() {
                             </ul>
 
                             <div className="button-container">
-                              <button
+                              <Button
                                 className="delete-button"
-                                onClick={(e) => handleDelete(data.id, e)}>
-                                Delete
-                              </button>
-                              <button
+                                label={"Delete"}
+                                onClick={(e) => handleDelete(data.id, e)}
+                              />
+                              <Button
                                 className="save-button"
-                                onClick={(e) => handleSave(data.id, e)}>
-                                Save
-                              </button>
+                                label={"Save"}
+                                onClick={(e) => handleSave(data.id, e)}
+                              />
                             </div>
                           </div>
                         </fieldset>
