@@ -1,7 +1,7 @@
-import { useState, useContext, ChangeEvent, FormEvent } from "react";
-import { FormDataContext } from "../App";
-
-import { ExperienceObject } from "../App";
+import { useContext, ChangeEvent, FormEvent } from "react";
+import { ExperienceObject, FormDataContext } from "../App";
+import { v4 as uuidv4 } from "uuid";
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
@@ -13,21 +13,25 @@ interface ExperienceFormProps {
 }
 
 function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceFormProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const { company, position, startDate, endDate, location, description } = experienceObject;
+  const { id, company, position, startDate, endDate, location, description, isOpen } =
+    experienceObject;
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setExperienceArray((prevState) =>
+      prevState.map((exp) => (exp.id === id ? { ...exp, isOpen: !exp.isOpen } : exp))
+    );
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
-    //const { name, value } = e.target;
-    return e.target;
+    const { name, value } = e.target;
+    setExperienceArray((prevState) =>
+      prevState.map((exp) => (exp.id === id ? { ...exp, [name]: value } : exp))
+    );
   };
 
-  const handleClear = (e: FormEvent<HTMLButtonElement>) => {
+  const handleDelete = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setExperienceArray((prevState) => prevState.filter((exp) => exp.id !== id));
   };
 
   const handleSave = (e: FormEvent<HTMLButtonElement>) => {
@@ -38,7 +42,6 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
   return (
     <form className="experience-form">
       <fieldset>
-        {/* Legend */}
         <div className="legend-container" onClick={toggleDropdown}>
           <div className="legend-content">
             <legend>Experience</legend>
@@ -52,7 +55,6 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
           {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </div>
 
-        {/* Drop down menu */}
         <div className={`dropdown-menu ${isOpen ? "open" : ""}`}>
           <ul>
             <li className="input-container">
@@ -119,11 +121,12 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
                 value={description}
                 onChange={handleChange}></textarea>
             </li>
-            <div className="button-container">
-              <Button className="clear-button" label="Clear" onClick={handleClear} />
-              <Button className="save-button" label="Save" onClick={handleSave} />
-            </div>
           </ul>
+
+          <div className="button-container">
+            <Button className="clear-button" label={"Delete"} onClick={handleDelete} />
+            <Button className="save-button" label={"Save"} onClick={handleSave} />
+          </div>
         </div>
       </fieldset>
     </form>
@@ -133,19 +136,69 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
 function ExperienceForms() {
   const { experienceArray, setExperienceArray } = useContext(FormDataContext)!;
 
+  const handleAddNew = () => {
+    const newEducationEntry = {
+      id: uuidv4(),
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+      isOpen: true,
+    };
+
+    setExperienceArray((prevState) => [...prevState, newEducationEntry]);
+  };
+
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const startIndex = result.source.index;
+    const endIndex = result.destination.index;
+
+    const updatedArray = Array.from(experienceArray);
+    const [removed] = updatedArray.splice(startIndex, 1);
+    updatedArray.splice(endIndex, 0, removed);
+
+    setExperienceArray(updatedArray);
+  };
+
   return (
     <>
       <div className="forms-title">Experience</div>
-      <div className="forms-container">
-        {experienceArray.map((experienceObject, index) => (
-          <ExperienceForm
-            key={index}
-            experienceObject={experienceObject}
-            setExperienceArray={setExperienceArray}
-          />
-        ))}
-      </div>
-      <Button className="forms-add-new" label={"+ Add new"} onClick={() => {}} />
+
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="experienceFormsContainer">
+          {(provided) => (
+            <div className="forms-container" {...provided.droppableProps} ref={provided.innerRef}>
+              {experienceArray.map((experienceObject, index) => (
+                <Draggable
+                  key={experienceObject.id}
+                  draggableId={experienceObject.id}
+                  index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}>
+                      <ExperienceForm
+                        experienceObject={experienceObject}
+                        setExperienceArray={setExperienceArray}
+                      />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+
+      <Button className="forms-add-new" label={"+ Add new"} onClick={handleAddNew} />
     </>
   );
 }
