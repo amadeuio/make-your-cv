@@ -286,6 +286,17 @@ button.save-button {
   background-color: var(--blue);
 }
 
+button.download-button {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+button.download-button svg {
+  margin-right: 7px;
+  fill: var(--slate-400);
+}
+
 button.forms-add-new:hover,
 .download-button:hover {
   background-color: var(--slate-300);
@@ -414,10 +425,4 @@ button.delete-button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.download-button {
-  margin-top: 50px;
-  /* height: 60px;
-  width: 100px; */
 }

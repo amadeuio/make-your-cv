@@ -7,6 +7,7 @@ import jsPDF from "jspdf";
 import HeaderCv from "./HeaderCv";
 import EducationCv from "./EducationCv";
 import ExperienceCv from "./ExperienceCv";
+import DownloadIcon from "../icons/DownloadIcon";
 
 interface CvProps {
   divRef: React.RefObject<HTMLDivElement>;
@@ -53,6 +54,7 @@ function CvSection() {
         </div>
 
         <button className="download-button" onClick={handleDownloadPDF}>
+          <DownloadIcon />
           Download PDF
         </button>
       </div>
