@@ -1,17 +1,17 @@
-import React from "react";
+import { FormEvent } from "react";
 
 interface ButtonProps {
   className: string;
   label: string;
-  onClick: (event: React.FormEvent<HTMLButtonElement>) => void;
+  onClick: (event: FormEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ className, label, onClick }) => {
+function Button({ className, label, onClick }: ButtonProps) {
   return (
     <button className={className} onClick={onClick}>
       {label}
     </button>
   );
-};
+}
 
 export default Button;
