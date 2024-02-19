@@ -40,7 +40,6 @@ function App() {
             <EducationForms />
             <ExperienceForms />
           </aside>
-          <div className="vertical-line"></div>
           <CvSection />
         </FormDataContext.Provider>
       </div>
