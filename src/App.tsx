@@ -95,27 +95,18 @@ const initialHeaderObject: HeaderObject = {
   fullName: "John Doe",
   email: "johndoe@example.com",
   phone: "+31 459 789 385",
-  address: "Breda, NL",
+  address: "Breda, Netherlands",
   isOpen: false,
 };
 
 const initialEducationArray: EducationObject[] = [
   {
     id: uuidv4(),
-    school: "Cambridge",
-    qualification: "Bachelor of Arts",
-    startDate: "Jan 2013",
-    endDate: "Jan 2017",
-    location: "England",
-    isOpen: false,
-  },
-  {
-    id: uuidv4(),
-    school: "UB",
-    qualification: "Chemistry",
-    startDate: "Oct 2000",
-    endDate: "Nov 2005",
-    location: "Spain",
+    school: "University of Barcelona",
+    qualification: "Bachelor of Science in Physics",
+    startDate: "Sept 2016",
+    endDate: "June 2021",
+    location: "Barcelona, Spain",
     isOpen: false,
   },
 ];
@@ -123,28 +114,28 @@ const initialEducationArray: EducationObject[] = [
 const initialExperienceArray: ExperienceObject[] = [
   {
     id: uuidv4(),
-    company: "Acme Corp",
+    company: "Acme Corporation",
     position: "Software Engineer",
-    startDate: "Feb 2020",
-    endDate: "Oct 2023",
+    startDate: "Jan 2023",
+    endDate: "Present",
     location: "Madrid, Spain",
-    description: `- Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-- Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-`,
+    description: `- Worked as a Software Engineer in a dynamic team environment, 
+implementing innovative solutions for various projects. 
+- Collaborated with cross-functional teams to deliver high-quality software products. 
+- Participated in code reviews and provided constructive feedback.`,
     isOpen: false,
   },
   {
     id: uuidv4(),
     company: "Tech Solutions Inc",
     position: "Data Scientist",
-    startDate: "May 2021",
-    endDate: "Present",
-    location: "New York, USA",
-    description: `- Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-- Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-`,
+    startDate: "Sept 2021",
+    endDate: "Aug 2022",
+    location: "New York City, USA",
+    description: `- Responsible for analyzing large datasets to extract actionable insights 
+and improve business processes. 
+- Developed machine learning models to predict customer behavior and optimize marketing strategies. 
+- Presented findings to stakeholders and provided recommendations for future initiatives.`,
     isOpen: false,
   },
 ];
