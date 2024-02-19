@@ -29,13 +29,15 @@ export interface EducationObject {
   isOpen: boolean;
 }
 
-interface ExperienceData {
+export interface ExperienceObject {
+  id: UUID;
   company: string;
   position: string;
   startDate: string;
   endDate: string;
   location: string;
   description: string;
+  isOpen: boolean;
 }
 
 interface FormDataContext {
@@ -43,8 +45,8 @@ interface FormDataContext {
   setHeaderObject: React.Dispatch<React.SetStateAction<HeaderObject>>;
   educationArray: EducationObject[];
   setEducationArray: React.Dispatch<React.SetStateAction<EducationObject[]>>;
-  experienceData: ExperienceData;
-  setExperienceData: React.Dispatch<React.SetStateAction<ExperienceData>>;
+  experienceArray: ExperienceObject[];
+  setExperienceArray: React.Dispatch<React.SetStateAction<ExperienceObject[]>>;
 }
 
 export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
@@ -118,22 +120,39 @@ const initialEducationArray: EducationObject[] = [
   },
 ];
 
-const initialExperienceData: ExperienceData = {
-  company: "Acme Corp",
-  position: "Software Engineer",
-  startDate: "Feb 2020",
-  endDate: "Oct 2023",
-  location: "Madrid, Spain",
-  description: `- Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+const initialExperienceArray: ExperienceObject[] = [
+  {
+    id: uuidv4(),
+    company: "Acme Corp",
+    position: "Software Engineer",
+    startDate: "Feb 2020",
+    endDate: "Oct 2023",
+    location: "Madrid, Spain",
+    description: `- Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 - Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 `,
-};
+    isOpen: false,
+  },
+  {
+    id: uuidv4(),
+    company: "Tech Solutions Inc",
+    position: "Data Scientist",
+    startDate: "May 2021",
+    endDate: "Present",
+    location: "New York, USA",
+    description: `- Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+- Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+`,
+    isOpen: false,
+  },
+];
 
 function App() {
   const [headerObject, setHeaderObject] = useState(initialHeaderObject);
   const [educationArray, setEducationArray] = useState(initialEducationArray);
-  const [experienceData, setExperienceData] = useState(initialExperienceData);
+  const [experienceArray, setExperienceArray] = useState(initialExperienceArray);
 
   return (
     <div className="app-container">
@@ -144,8 +163,8 @@ function App() {
             setHeaderObject,
             educationArray,
             setEducationArray,
-            experienceData,
-            setExperienceData,
+            experienceArray,
+            setExperienceArray,
           }}>
           <FormSection />
           <VerticalLine />

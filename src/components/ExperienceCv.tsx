@@ -3,43 +3,48 @@ import { FormDataContext } from "../App";
 
 import LocationIcon from "../icons/LocationIcon";
 
+import { ExperienceObject } from "../App";
+
+interface ExperienceItemProps {
+  experienceObject: ExperienceObject;
+}
+
+function ExperienceItem({ experienceObject }: ExperienceItemProps) {
+  const { id, position, company, location, startDate, endDate, description } = experienceObject;
+
+  return (
+    <div className="experience-item cv-item" key={id}>
+      <div className="experience-title cv-title">
+        {company ? `${position}, ${company}` : position}
+      </div>
+      {location && (
+        <div className="experience-location cv-location">
+          <LocationIcon />
+          {location}
+        </div>
+      )}
+      <div className="experience-date cv-date">
+        {startDate}
+        {endDate && ` — ${endDate}`}
+      </div>
+      <ul className="experience-description cv-description">
+        {description.split("\n").map((point, index) => (
+          <li key={index}>{point.trim()}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function ExperienceCv() {
-  const { experienceData } = useContext(FormDataContext)!;
-  const { company, position, startDate, endDate, location, description } = experienceData;
-
-  const isExperienceDataEmpty = Object.values(experienceData).every((value) => value === "");
-
-  if (isExperienceDataEmpty) {
-    return null;
-  }
+  const { experienceArray } = useContext(FormDataContext)!;
 
   return (
     <div className="experience-container cv-container">
       <h1>Experience</h1>
-      {Array(2)
-        .fill(null)
-        .map(() => (
-          <div className="experience-item cv-item">
-            <div className="experience-title cv-title">
-              {company ? `${position}, ${company}` : position}
-            </div>
-            {location && (
-              <div className="experience-location cv-location">
-                <LocationIcon />
-                {location}
-              </div>
-            )}
-            <div className="experience-date cv-date">
-              {startDate}
-              {endDate && ` — ${endDate}`}
-            </div>
-            <ul className="experience-description cv-description">
-              {description.split("\n").map((point, index) => (
-                <li key={index}>{point.trim()}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      {experienceArray.map((experienceObject) => (
+        <ExperienceItem key={experienceObject.id} experienceObject={experienceObject} />
+      ))}
     </div>
   );
 }

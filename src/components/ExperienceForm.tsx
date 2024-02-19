@@ -1,13 +1,21 @@
 import { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { FormDataContext } from "../App";
 
+import { ExperienceObject } from "../App";
+
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
-function ExperienceForm() {
-  const { experienceData, setExperienceData } = useContext(FormDataContext)!;
+interface ExperienceFormProps {
+  experienceObject: ExperienceObject;
+  setExperienceArray: React.Dispatch<React.SetStateAction<ExperienceObject[]>>;
+}
+
+function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceFormProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { company, position, startDate, endDate, location, description } = experienceObject;
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -15,27 +23,17 @@ function ExperienceForm() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setExperienceData({ ...experienceData, [name]: value });
+    setExperienceArray({ ...experienceObject, [name]: value });
   };
 
   const handleClear = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setExperienceData({
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      description: "",
-    });
   };
 
   const handleSave = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     toggleDropdown();
   };
-
-  const { company, position, startDate, endDate, location, description } = experienceData;
 
   return (
     <form>
@@ -133,11 +131,19 @@ function ExperienceForm() {
 }
 
 function ExperienceForms() {
+  const { experienceArray, setExperienceArray } = useContext(FormDataContext)!;
+
   return (
     <>
       <div className="forms-title">Experience</div>
       <div className="forms-container">
-        <ExperienceForm />
+        {experienceArray.map((experienceObject, index) => (
+          <ExperienceForm
+            key={index}
+            experienceObject={experienceObject}
+            setExperienceArray={setExperienceArray}
+          />
+        ))}
       </div>
       <Button className="forms-add-new" label={"+ Add new"} onClick={() => {}} />
     </>
