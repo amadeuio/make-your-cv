@@ -1,8 +1,9 @@
+import { useContext } from "react";
+import { FormDataContext } from "../App";
+
 import MailIcon from "../icons/MailIcon";
 import PhoneIcon from "../icons/PhoneIcon";
 import LocationIcon from "../icons/LocationIcon";
-import { useContext } from "react";
-import { FormDataContext } from "../App";
 
 function HeaderCv() {
   const { headerObject } = useContext(FormDataContext)!;
