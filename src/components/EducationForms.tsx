@@ -78,11 +78,10 @@ function EducationForms() {
                 <Draggable key={data.id} draggableId={data.id} index={index}>
                   {(provided) => (
                     <div
-                      className="education-form-item"
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}>
-                      <form>
+                      <form className="education-form">
                         <fieldset>
                           {/* Legend */}
                           <div className="legend-container" onClick={() => toggleDropdown(data.id)}>

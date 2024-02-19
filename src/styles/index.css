@@ -147,7 +147,7 @@ h1 {
   align-items: center;
 }
 
-.education-form-item {
+.education-form {
   margin: 15px 0; /* Requires margin on all items for drag & drop */
 }
 
