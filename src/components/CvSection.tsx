@@ -1,7 +1,9 @@
 import { useContext, useRef } from "react";
 import { FormDataContext } from "../App";
+
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+
 import HeaderCv from "./HeaderCv";
 import EducationCv from "./EducationCv";
 import ExperienceCv from "./ExperienceCv";

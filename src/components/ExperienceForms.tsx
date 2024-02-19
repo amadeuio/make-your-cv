@@ -1,5 +1,7 @@
 import { useContext, ChangeEvent, FormEvent } from "react";
-import { ExperienceObject, FormDataContext } from "../App";
+import { FormDataContext } from "../App";
+import { ExperienceObject } from "../types";
+
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 
