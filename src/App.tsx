@@ -63,8 +63,10 @@ function Cv() {
   return (
     <div className="cv">
       <HeaderCv />
-      <EducationCv />
-      <ExperienceCv />
+      <div className="body-cv">
+        <EducationCv />
+        <ExperienceCv />
+      </div>
     </div>
   );
 }

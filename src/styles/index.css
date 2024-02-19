@@ -355,8 +355,6 @@ button.delete-button:hover {
 }
 
 .cv-container {
-  padding: 60px;
-  padding-bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -386,6 +384,14 @@ button.delete-button:hover {
 
 .cv-date {
   color: var(--slate-400);
+}
+
+.body-cv {
+  padding: 70px;
+}
+
+.education-container {
+  margin-bottom: 30px;
 }
 
 .experience-description {
