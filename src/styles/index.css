@@ -135,13 +135,13 @@ h1 {
 
 /* Form Section */
 
-.form-title {
+.forms-title {
   font-size: 16px;
   font-weight: 700;
   color: var(--slate-400);
 }
 
-.education-forms-container {
+.forms-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +151,7 @@ h1 {
   margin: 15px 0; /* Requires margin on all items for drag & drop */
 }
 
-.form-title {
+.forms-title {
   margin-bottom: -15px;
 }
 
