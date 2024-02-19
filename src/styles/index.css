@@ -148,7 +148,7 @@ h1 {
 }
 
 .education-form-item {
-  margin: 15px 0;
+  margin: 15px 0; /* Requires margin on all items for drag & drop */
 }
 
 .form-title {
