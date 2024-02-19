@@ -1,5 +1,5 @@
 import { useContext, ChangeEvent, FormEvent } from "react";
-import { FormDataContext } from "../App";
+import { EducationObject, FormDataContext } from "../App";
 import { v4 as uuidv4 } from "uuid";
 import { UUID } from "../App";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
@@ -8,8 +8,16 @@ import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
-function EducationForms() {
+interface EducationFormProps {
+  id: UUID;
+}
+
+function EducationForm({ id }: EducationFormProps) {
   const { educationArray, setEducationArray } = useContext(FormDataContext)!;
+
+  const educationObject = educationArray.find((edu) => edu.id === id) as EducationObject;
+
+  const { school, qualification, startDate, endDate, location, isOpen } = educationObject;
 
   const toggleDropdown = (id: UUID) => {
     setEducationArray((prevState) =>
@@ -33,6 +41,98 @@ function EducationForms() {
     e.preventDefault();
     toggleDropdown(id);
   };
+
+  return (
+    <form className="education-form">
+      <fieldset>
+        <div className="legend-container" onClick={() => toggleDropdown(id)}>
+          <div className="legend-content">
+            <legend>Education</legend>
+            {!isOpen && qualification && (
+              <div className="legend-qualification-preview">
+                <span className="legend-dash">—</span>
+                {qualification}
+              </div>
+            )}
+          </div>
+          {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </div>
+
+        <div className={`dropdown-menu ${isOpen ? "open" : ""}`}>
+          <ul>
+            <li className="input-container">
+              <label htmlFor={`qualification_${id}`}>Qualification</label>
+              <input
+                type="text"
+                id={`qualification_${id}`}
+                name="qualification"
+                placeholder="Enter the qualification name"
+                value={qualification}
+                onChange={(e) => handleChange(id, e)}
+              />
+            </li>
+            <li className="input-container">
+              <label htmlFor={`school_${id}`}>School</label>
+              <input
+                type="text"
+                id={`school_${id}`}
+                name="school"
+                placeholder="Enter the school name"
+                value={school}
+                onChange={(e) => handleChange(id, e)}
+              />
+            </li>
+            <li className="input-container">
+              <label htmlFor={`location_${id}`}>Location</label>
+              <input
+                type="text"
+                id={`location_${id}`}
+                name="location"
+                placeholder="Enter the location"
+                value={location}
+                onChange={(e) => handleChange(id, e)}
+              />
+            </li>
+            <li className="input-container">
+              <label htmlFor={`startDate_${id}`}>Start Date</label>
+              <input
+                type="text"
+                id={`startDate_${id}`}
+                name="startDate"
+                placeholder="Enter the start date"
+                value={startDate}
+                onChange={(e) => handleChange(id, e)}
+              />
+            </li>
+            <li className="input-container">
+              <label htmlFor={`endDate_${id}`}>End Date</label>
+              <input
+                type="text"
+                id={`endDate_${id}`}
+                name="endDate"
+                placeholder="Enter the end date"
+                value={endDate}
+                onChange={(e) => handleChange(id, e)}
+              />
+            </li>
+          </ul>
+
+          <div className="button-container">
+            <Button
+              className="delete-button"
+              label={"Delete"}
+              onClick={(e) => handleDelete(id, e)}
+            />
+            <Button className="save-button" label={"Save"} onClick={(e) => handleSave(id, e)} />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  );
+}
+
+function EducationForms() {
+  const { educationArray, setEducationArray } = useContext(FormDataContext)!;
 
   const handleAddNew = () => {
     const newEducationEntry = {
@@ -74,104 +174,15 @@ function EducationForms() {
               className="education-forms-container"
               {...provided.droppableProps}
               ref={provided.innerRef}>
-              {educationArray.map((data, index) => (
-                <Draggable key={data.id} draggableId={data.id} index={index}>
+              {/* Creates a form synced with each object */}
+              {educationArray.map((educationObject, index) => (
+                <Draggable key={educationObject.id} draggableId={educationObject.id} index={index}>
                   {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}>
-                      <form className="education-form">
-                        <fieldset>
-                          {/* Legend */}
-                          <div className="legend-container" onClick={() => toggleDropdown(data.id)}>
-                            <div className="legend-content">
-                              <legend>Education</legend>
-                              {!data.isOpen && data.qualification && (
-                                <div className="legend-qualification-preview">
-                                  <span className="legend-dash">—</span>
-                                  {data.qualification}
-                                </div>
-                              )}
-                            </div>
-                            {data.isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                          </div>
-
-                          {/* Drop down menu */}
-                          <div className={`dropdown-menu ${data.isOpen ? "open" : ""}`}>
-                            <ul>
-                              <li className="input-container">
-                                <label htmlFor={`qualification_${data.id}`}>Qualification</label>
-                                <input
-                                  type="text"
-                                  id={`qualification_${data.id}`}
-                                  name="qualification"
-                                  placeholder="Enter the qualification name"
-                                  value={data.qualification}
-                                  onChange={(e) => handleChange(data.id, e)}
-                                />
-                              </li>
-                              <li className="input-container">
-                                <label htmlFor={`school_${data.id}`}>School</label>
-                                <input
-                                  type="text"
-                                  id={`school_${data.id}`}
-                                  name="school"
-                                  placeholder="Enter the school name"
-                                  value={data.school}
-                                  onChange={(e) => handleChange(data.id, e)}
-                                />
-                              </li>
-                              <li className="input-container">
-                                <label htmlFor={`location_${data.id}`}>Location</label>
-                                <input
-                                  type="text"
-                                  id={`location_${data.id}`}
-                                  name="location"
-                                  placeholder="Enter the location"
-                                  value={data.location}
-                                  onChange={(e) => handleChange(data.id, e)}
-                                />
-                              </li>
-                              <li className="input-container">
-                                <label htmlFor={`startDate_${data.id}`}>Start Date</label>
-                                <input
-                                  type="text"
-                                  id={`startDate_${data.id}`}
-                                  name="startDate"
-                                  placeholder="Enter the start date"
-                                  value={data.startDate}
-                                  onChange={(e) => handleChange(data.id, e)}
-                                />
-                              </li>
-                              <li className="input-container">
-                                <label htmlFor={`endDate_${data.id}`}>End Date</label>
-                                <input
-                                  type="text"
-                                  id={`endDate_${data.id}`}
-                                  name="endDate"
-                                  placeholder="Enter the end date"
-                                  value={data.endDate}
-                                  onChange={(e) => handleChange(data.id, e)}
-                                />
-                              </li>
-                            </ul>
-
-                            <div className="button-container">
-                              <Button
-                                className="delete-button"
-                                label={"Delete"}
-                                onClick={(e) => handleDelete(data.id, e)}
-                              />
-                              <Button
-                                className="save-button"
-                                label={"Save"}
-                                onClick={(e) => handleSave(data.id, e)}
-                              />
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
+                      <EducationForm id={educationObject.id} />
                     </div>
                   )}
                 </Draggable>
