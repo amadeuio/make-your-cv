@@ -262,9 +262,11 @@ button {
 }
 
 button.forms-add-new {
-  width: 100px;
+  height: 50px;
   color: var(--slate-400);
   border-color: var(--slate-300);
+  font-weight: 700;
+  font-size: 16px;
 }
 
 button.delete-button {
