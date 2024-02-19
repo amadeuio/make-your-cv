@@ -141,16 +141,22 @@ h1 {
   color: var(--slate-400);
 }
 
-.education-forms {
+.education-forms-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.education-forms .form-title,
-.education-forms form,
-.education-forms button {
+.education-form-item {
   margin: 15px 0;
+}
+
+.form-title {
+  margin-bottom: -15px;
+}
+
+.add-new-button {
+  margin-top: -15px;
 }
 
 form {
