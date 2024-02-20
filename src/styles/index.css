@@ -34,8 +34,8 @@ body {
 
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: 30px;
   margin-bottom: 50px;
 }
@@ -52,6 +52,7 @@ body {
 
 .main-content-container {
   display: flex;
+  justify-content: center;
 }
 
 .cv-section {
@@ -271,6 +272,12 @@ button.download-button {
   font-size: 16px;
 }
 
+button.download-button {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
 button.delete-button,
 button.clear-button {
   border-color: var(--slate-300);
@@ -282,10 +289,25 @@ button.save-button {
   background-color: var(--blue);
 }
 
-button.download-button {
-  margin-top: 50px;
-  display: flex;
+.switch-button {
+  display: none;
   align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  border-color: var(--blue-hover);
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.switch-button svg {
+  margin-right: 7px;
+  fill: var(--white);
+}
+
+.switch-button:hover {
+  background-color: var(--blue-hover);
 }
 
 button.download-button svg {
@@ -492,8 +514,32 @@ button.clear-button:hover {
 }
 
 @media screen and (max-width: 1250px) {
+  /* Expandable */
+
+  .switch-button {
+    display: flex;
+  }
+
+  .form-section,
+  .cv-section {
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+  }
+
   .form-section {
-    width: 0;
-    display: none;
+    position: absolute;
+  }
+
+  .form-section.open {
+    margin-left: 0;
+  }
+
+  .form-section:not(.open) {
+    transform: translateX(-1000px);
+  }
+
+  .cv-section:not(.open) {
+    transform: translateX(1000px);
   }
 }
