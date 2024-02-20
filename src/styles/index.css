@@ -24,12 +24,6 @@
   --slate-950: #020617;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   font-family: "Archivo";
   font-size: 14px;
@@ -37,15 +31,6 @@ body {
   color: var(--slate-800);
   background-color: var(--slate-100);
 }
-
-.main-content-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 70px;
-  padding-top: 0;
-}
-
-/* navbar */
 
 .navbar {
   display: flex;
@@ -60,13 +45,26 @@ body {
   font-weight: 800;
 }
 
-.form-section {
-  gap: 30px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-container {
+  display: flex;
+}
+
+.cv-section {
+  flex: 1;
 }
 
 .form-section,
 .cv-section {
   display: flex;
+}
+
+.form-section {
+  gap: 30px;
 }
 
 .cv-section {
@@ -85,6 +83,16 @@ form,
 
 .cv-border-radius-wrapper {
   overflow: hidden;
+}
+
+/* Spacing */
+
+.main-content-container {
+  padding-bottom: 70px;
+}
+
+.form-section {
+  margin-left: 70px;
 }
 
 /* svg */
@@ -319,15 +327,6 @@ button.clear-button:hover {
   max-height: 700px;
 }
 
-/* Form section responsiveness */
-
-@media screen and (max-width: 768px) {
-  .form-section {
-    width: 0;
-    display: none;
-  }
-}
-
 /* Cv Section */
 
 .cv {
@@ -414,4 +413,87 @@ button.clear-button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 830px) {
+  .cv {
+    --cv-width: 500px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cv {
+    --cv-width: 300px;
+  }
+
+  .cv {
+    font-size: 5px;
+  }
+
+  .cv h1 {
+    font-size: 14px;
+  }
+
+  .cv svg {
+    width: 7px;
+  }
+
+  .header-cv-contact-item {
+    margin: 0 5px;
+  }
+
+  .cv-container h1,
+  .cv-item {
+    margin-bottom: 5px;
+  }
+
+  .cv-container svg {
+    margin-right: 2px;
+  }
+
+  .cv-item > * {
+    margin: 0px 0;
+  }
+
+  .cv-item {
+    margin: 4px 0;
+  }
+
+  .cv-location svg {
+    width: 4px;
+  }
+
+  .cv-location {
+    padding: 0;
+    height: 13px;
+  }
+
+  .body-cv {
+    padding: 25px;
+  }
+
+  .education-container {
+    margin-bottom: 20px;
+  }
+
+  .experience-description {
+    margin-top: 0px;
+  }
+
+  .experience-description li {
+    margin-top: 2px;
+  }
+
+  .main-content-container {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .form-section {
+    width: 0;
+    display: none;
+  }
 }

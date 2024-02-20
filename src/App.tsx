@@ -25,11 +25,10 @@ function App() {
 
   return (
     <div className="app-container">
-      {
-        <div className="navbar">
-          <h1>Make Your CV 📃</h1>
-        </div>
-      }
+      <div className="navbar">
+        <h1>Make Your CV 📃</h1>
+      </div>
+
       <div className="main-content-container">
         <FormDataContext.Provider
           value={{
