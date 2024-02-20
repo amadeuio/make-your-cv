@@ -6,7 +6,7 @@ export const initialHeaderObject: HeaderObject = {
   email: "johndoe@example.com",
   phone: "+31 459 789 385",
   address: "Breda, Netherlands",
-  isOpen: false,
+  isOpen: true,
 };
 
 export const initialEducationArray: EducationObject[] = [
