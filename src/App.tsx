@@ -2,9 +2,7 @@ import { useState, createContext, Dispatch, SetStateAction } from "react";
 import { HeaderObject, EducationObject, ExperienceObject } from "./types";
 import { initialHeaderObject, initialEducationArray, initialExperienceArray } from "./initialData";
 
-import HeaderForm from "./components/HeaderForm";
-import EducationForms from "./components/EducationForms";
-import ExperienceForms from "./components/ExperienceForms";
+import FormSection from "./components/FormSection";
 import CvSection from "./components/CvSection";
 
 interface FormDataContext {
@@ -39,11 +37,7 @@ function App() {
             experienceArray,
             setExperienceArray,
           }}>
-          <aside className="form-section">
-            <HeaderForm />
-            <EducationForms />
-            <ExperienceForms />
-          </aside>
+          <FormSection />
           <CvSection />
         </FormDataContext.Provider>
       </div>
