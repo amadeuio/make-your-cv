@@ -19,6 +19,15 @@ export const initialEducationArray: EducationObject[] = [
     location: "Barcelona, Spain",
     isOpen: false,
   },
+  {
+    id: uuidv4(),
+    school: "Central High School",
+    qualification: "High School Diploma",
+    startDate: "Sept 2012",
+    endDate: "June 2016",
+    location: "Boston, USA",
+    isOpen: false,
+  },
 ];
 
 export const initialExperienceArray: ExperienceObject[] = [

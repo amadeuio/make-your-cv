@@ -42,6 +42,20 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 70px;
+  padding-top: 0; /* navbar */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  font-weight: 800;
 }
 
 .form-section {
