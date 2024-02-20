@@ -247,7 +247,8 @@ button.download-button {
   font-size: 16px;
 }
 
-button.delete-button {
+button.delete-button,
+button.clear-button {
   border-color: var(--slate-300);
 }
 
@@ -277,7 +278,8 @@ button.save-button:hover {
   background-color: var(--blue-hover);
 }
 
-button.delete-button:hover {
+button.delete-button:hover,
+button.clear-button:hover {
   background-color: var(--slate-50-hover);
 }
 
