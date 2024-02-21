@@ -28,33 +28,27 @@ function App() {
   };
 
   return (
-    <>
-      {/* <div className="overlay"></div> */}
-      <div className="app-container">
-        <div className="navbar">
-          <ButtonSwitch
-            isFormSectionOpen={isFormSectionOpen}
-            toggleFormSection={toggleFormSection}
-          />
-          <h1>Make Your CV 📃</h1>
-        </div>
-
-        <div className="main-content-container">
-          <FormDataContext.Provider
-            value={{
-              headerObject,
-              setHeaderObject,
-              educationArray,
-              setEducationArray,
-              experienceArray,
-              setExperienceArray,
-            }}>
-            <FormSection isFormSectionOpen={isFormSectionOpen} />
-            <CvSection isFormSectionOpen={isFormSectionOpen} />
-          </FormDataContext.Provider>
-        </div>
+    <div className="app-container">
+      <div className="navbar">
+        <ButtonSwitch isFormSectionOpen={isFormSectionOpen} toggleFormSection={toggleFormSection} />
+        <h1>Make Your CV 📃</h1>
       </div>
-    </>
+
+      <div className="main-content-container">
+        <FormDataContext.Provider
+          value={{
+            headerObject,
+            setHeaderObject,
+            educationArray,
+            setEducationArray,
+            experienceArray,
+            setExperienceArray,
+          }}>
+          <FormSection isFormSectionOpen={isFormSectionOpen} />
+          <CvSection isFormSectionOpen={isFormSectionOpen} />
+        </FormDataContext.Provider>
+      </div>
+    </div>
   );
 }
 
