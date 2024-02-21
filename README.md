@@ -1,6 +1,6 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-# Make Your CV
+# Make Your CV 📃
 
 CV generation web app. Currently under development.
 
