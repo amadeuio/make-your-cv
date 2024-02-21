@@ -25,7 +25,11 @@ function Cv({ divRef }: CvProps) {
   );
 }
 
-function CvSection({ isFormSectionOpen }) {
+interface CvSectionProps {
+  isFormSectionOpen: boolean;
+}
+
+function CvSection({ isFormSectionOpen }: CvSectionProps) {
   const { headerObject } = useContext(FormDataContext)!;
   const [firstName, lastName] = headerObject.fullName.split(" ");
 
@@ -33,7 +37,7 @@ function CvSection({ isFormSectionOpen }) {
 
   const handleDownloadPDF = () => {
     const cvDiv = divRef.current;
-    const clonedCv = cvDiv.cloneNode(true) as HTMLDivElement;
+    const clonedCv = cvDiv!.cloneNode(true) as HTMLDivElement;
     clonedCv.style.setProperty("--cv-resize", "1");
     clonedCv.style.borderRadius = "0";
     document.body.appendChild(clonedCv);
