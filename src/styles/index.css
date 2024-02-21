@@ -100,18 +100,11 @@ form,
 
 svg {
   height: 22px;
-  width: auto;
+  width: 22px;
 }
 
 .legend-container svg {
   fill: var(--slate-800);
-}
-
-.header-cv svg {
-  height: 18px;
-  width: auto;
-  fill: var(--white);
-  margin-right: 5px;
 }
 
 h1 {
@@ -355,8 +348,10 @@ button.clear-button:hover {
   --cv-width: 800px;
   height: calc(var(--cv-width) * sqrt(2)); /* A4 aspect ratio */
   width: var(--cv-width);
+  --cv-resize: 1; /* Used for screen resize */
   background-color: var(--white);
   overflow: hidden;
+  font-size: calc(14px * var(--cv-resize));
 }
 
 .header-cv {
@@ -369,6 +364,10 @@ button.clear-button:hover {
   height: 15%;
 }
 
+.cv h1 {
+  font-size: calc(30px * var(--cv-resize));
+}
+
 .header-cv-contact {
   display: flex;
   justify-content: center;
@@ -377,10 +376,17 @@ button.clear-button:hover {
 }
 
 .header-cv-contact-item {
-  margin: 0 20px;
+  margin: 0 calc(20px * var(--cv-resize));
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.header-cv-contact-item svg {
+  width: calc(18px * var(--cv-resize));
+  height: calc(18px * var(--cv-resize));
+  fill: var(--white);
+  margin-right: calc(5px * var(--cv-resize));
 }
 
 .cv-container {
@@ -390,16 +396,17 @@ button.clear-button:hover {
 
 .cv-container h1,
 .cv-item {
-  margin-bottom: 30px;
+  margin-bottom: calc(30px * var(--cv-resize));
 }
 
 .cv-container svg {
-  width: 12px;
-  margin-right: 5px;
+  width: calc(13px * var(--cv-resize));
+  height: calc(13px * var(--cv-resize));
+  margin-right: calc(5px * var(--cv-resize));
 }
 
 .cv-item > * {
-  margin: 7px 0;
+  margin: calc(7px * var(--cv-resize)) 0;
 }
 
 .cv-title {
@@ -416,19 +423,19 @@ button.clear-button:hover {
 }
 
 .body-cv {
-  padding: 70px;
+  padding: calc(70px * var(--cv-resize));
 }
 
 .education-container {
-  margin-bottom: 30px;
+  margin-bottom: calc(30px * var(--cv-resize));
 }
 
 .experience-description {
-  margin-top: 15px;
+  margin-top: calc(15px * var(--cv-resize));
 }
 
 .experience-description li {
-  margin-top: 5px;
+  margin-top: calc(5px * var(--cv-resize));
 }
 
 .cv-and-download-container {
@@ -439,82 +446,8 @@ button.clear-button:hover {
 
 /* Responsiveness */
 
-@media screen and (max-width: 830px) {
-  .cv {
-    --cv-width: 500px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .cv {
-    --cv-width: 300px;
-  }
-
-  .cv {
-    font-size: 5px;
-  }
-
-  .cv h1 {
-    font-size: 14px;
-  }
-
-  .cv svg {
-    width: 7px;
-  }
-
-  .header-cv-contact-item {
-    margin: 0 5px;
-  }
-
-  .cv-container h1,
-  .cv-item {
-    margin-bottom: 5px;
-  }
-
-  .cv-container svg {
-    margin-right: 2px;
-  }
-
-  .cv-item > * {
-    margin: 0px 0;
-  }
-
-  .cv-item {
-    margin: 4px 0;
-  }
-
-  .cv-location svg {
-    width: 4px;
-  }
-
-  .cv-location {
-    padding: 0;
-    height: 13px;
-  }
-
-  .body-cv {
-    padding: 25px;
-  }
-
-  .education-container {
-    margin-bottom: 20px;
-  }
-
-  .experience-description {
-    margin-top: 0px;
-  }
-
-  .experience-description li {
-    margin-top: 2px;
-  }
-
-  .main-content-container {
-    padding-bottom: 0;
-  }
-}
-
 @media screen and (max-width: 1250px) {
-  /* Expandable */
+  /* Creates Screen Switching */
 
   .switch-button {
     display: flex;
@@ -541,5 +474,19 @@ button.clear-button:hover {
 
   .cv-section:not(.open) {
     transform: translateX(1000px);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .cv {
+    --cv-width: 500px;
+    --cv-resize: 0.625;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cv {
+    --cv-width: 300px;
+    --cv-resize: 0.375;
   }
 }
