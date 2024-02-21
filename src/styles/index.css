@@ -127,7 +127,7 @@ h1 {
   background: var(--slate-600);
 }
 
-/* Form Section */
+/* Form section */
 
 .forms-title {
   font-size: 16px;
@@ -342,13 +342,13 @@ button.clear-button:hover {
   max-height: 700px;
 }
 
-/* Cv Section */
+/* Cv section */
 
 .cv {
-  --cv-width: 800px;
-  height: calc(var(--cv-width) * sqrt(2)); /* A4 aspect ratio */
+  --cv-resize: 1; /* Scaling factor to adjust cv to screen size */
+  --cv-width: calc(800px * var(--cv-resize));
   width: var(--cv-width);
-  --cv-resize: 1; /* Used for screen resize */
+  height: calc(var(--cv-width) * sqrt(2)); /* A4 aspect ratio */
   background-color: var(--white);
   overflow: hidden;
   font-size: calc(14px * var(--cv-resize));
@@ -479,14 +479,18 @@ button.clear-button:hover {
 
 @media screen and (max-width: 830px) {
   .cv {
-    --cv-width: 500px;
-    --cv-resize: 0.625;
+    --cv-resize: 0.625; /* Corresponds to a cv width of 500px */
   }
 }
 
 @media screen and (max-width: 550px) {
   .cv {
-    --cv-width: 300px;
-    --cv-resize: 0.375;
+    --cv-resize: 0.425; /* Corresponds to a cv width of 340px */
+  }
+}
+
+@media screen and (max-width: 436px) {
+  .cv {
+    --cv-resize: 0.375; /* Corresponds to a cv width of 300px */
   }
 }
