@@ -11,11 +11,11 @@ function ButtonSwitch({ isFormSectionOpen, toggleFormSection }: ButtonSwitchProp
     <button className="switch-button" onClick={toggleFormSection}>
       {isFormSectionOpen ? (
         <>
-          <ArrowRight /> Switch View
+          <ArrowRight /> Show CV
         </>
       ) : (
         <>
-          <ArrowLeft /> Switch View
+          <ArrowLeft /> Show Inputs
         </>
       )}
     </button>
