@@ -32,10 +32,13 @@ function CvSection({ isFormSectionOpen }) {
   const divRef = useRef<HTMLDivElement>(null!);
 
   const handleDownloadPDF = () => {
-    const elementToDownload = divRef.current;
-    elementToDownload.style.borderRadius = "0";
+    const cvDiv = divRef.current;
+    const clonedCv = cvDiv.cloneNode(true) as HTMLDivElement;
+    clonedCv.style.setProperty("--cv-resize", "1");
+    clonedCv.style.borderRadius = "0";
+    document.body.appendChild(clonedCv);
 
-    html2canvas(elementToDownload).then((canvas) => {
+    html2canvas(clonedCv).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
       const imgWidth = 210;
@@ -44,6 +47,8 @@ function CvSection({ isFormSectionOpen }) {
       pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
       pdf.save(`${firstName}_${lastName}_CV`);
     });
+
+    clonedCv.remove();
   };
 
   return (

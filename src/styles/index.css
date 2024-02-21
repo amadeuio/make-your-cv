@@ -346,7 +346,7 @@ button.clear-button:hover {
 /* Cv section */
 
 .cv {
-  --cv-resize: 1; /* Scaling factor to adjust cv to screen size */
+  --cv-resize: 1; /* Default scaling factor */
   --cv-width: calc(800px * var(--cv-resize));
   width: var(--cv-width);
   height: calc(var(--cv-width) * sqrt(2)); /* A4 aspect ratio */
