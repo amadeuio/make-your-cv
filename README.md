@@ -1,9 +1,11 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-# CV App
+# Make Your CV
 
-CV generation web app. Currently under development, coming soon.
+CV generation web app. Currently under development.
 
 ## Demo
 
-## Features
+<h2 align="center">
+  <a href="https://amadeuio.github.io/make-your-cv">👉 Demo</a>
+</h2>
