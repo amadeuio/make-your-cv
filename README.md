@@ -25,7 +25,7 @@ CV builder web app.
 
 ## Tech Stack
 
-- **UI:** React
+- **UI Library:** React
 - **Languages:** TypeScript, CSS, HTML
 - **Build Tool:** Vite
 - **Dependencies:** react-beautiful-dnd, uuid, html2canvas, jspdf
