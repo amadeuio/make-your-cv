@@ -1,10 +1,10 @@
-import { useState, createContext, Dispatch, SetStateAction } from "react";
+import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
 import { HeaderObject, EducationObject, ExperienceObject } from "./types";
 import { initialHeaderObject, initialEducationArray, initialExperienceArray } from "./initialData";
 
 import FormSection from "./components/FormSection";
 import CvSection from "./components/CvSection";
-import ButtonSwitch from "./components/ButtonSwitch";
+import ButtonToggleView from "./components/ButtonToggleView";
 
 interface FormDataContext {
   headerObject: HeaderObject;
@@ -21,16 +21,30 @@ function App() {
   const [headerObject, setHeaderObject] = useState(initialHeaderObject);
   const [educationArray, setEducationArray] = useState(initialEducationArray);
   const [experienceArray, setExperienceArray] = useState(initialExperienceArray);
-  const [isFormSectionOpen, setIsFormSectionOpen] = useState(false);
 
-  const toggleFormSection = () => {
-    setIsFormSectionOpen(!isFormSectionOpen);
+  const [showForm, setShowForm] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 1250);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCollapsed(window.innerWidth <= 1250);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleView = () => {
+    setShowForm(!showForm);
   };
 
   return (
     <div className="app-container">
       <div className="navbar">
-        <ButtonSwitch isFormSectionOpen={isFormSectionOpen} toggleFormSection={toggleFormSection} />
+        {isCollapsed && <ButtonToggleView showForm={showForm} toggleView={toggleView} />}
         <h1>Make Your CV 📃</h1>
       </div>
 
@@ -44,8 +58,8 @@ function App() {
             experienceArray,
             setExperienceArray,
           }}>
-          <FormSection isFormSectionOpen={isFormSectionOpen} />
-          <CvSection isFormSectionOpen={isFormSectionOpen} />
+          {(!isCollapsed || showForm) && <FormSection showForm={showForm} />}
+          {(!isCollapsed || !showForm) && <CvSection showForm={showForm} />}
         </FormDataContext.Provider>
       </div>
     </div>

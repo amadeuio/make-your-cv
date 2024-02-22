@@ -3,13 +3,13 @@ import EducationForms from "./EducationForms";
 import ExperienceForms from "./ExperienceForms";
 
 interface FormSectionProps {
-  isFormSectionOpen: boolean;
+  showForm: boolean;
 }
 
-function FormSection({ isFormSectionOpen }: FormSectionProps) {
+function FormSection({ showForm }: FormSectionProps) {
   return (
     <>
-      <aside className={`form-section ${isFormSectionOpen ? "open" : ""}`}>
+      <aside className={`form-section ${showForm ? "" : "open"}`}>
         <HeaderForm />
         <EducationForms />
         <ExperienceForms />

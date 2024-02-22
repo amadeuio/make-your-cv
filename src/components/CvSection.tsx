@@ -26,10 +26,10 @@ function Cv({ divRef }: CvProps) {
 }
 
 interface CvSectionProps {
-  isFormSectionOpen: boolean;
+  showForm: boolean;
 }
 
-function CvSection({ isFormSectionOpen }: CvSectionProps) {
+function CvSection({ showForm }: CvSectionProps) {
   const { headerObject } = useContext(FormDataContext)!;
   const [firstName, lastName] = headerObject.fullName.split(" ");
 
@@ -56,7 +56,7 @@ function CvSection({ isFormSectionOpen }: CvSectionProps) {
   };
 
   return (
-    <main className={`cv-section ${!isFormSectionOpen ? "open" : ""}`}>
+    <main className={`cv-section ${!showForm ? "open" : ""}`}>
       <div className="cv-and-download-container">
         <div className="cv-border-radius-wrapper">
           <Cv divRef={divRef} />
