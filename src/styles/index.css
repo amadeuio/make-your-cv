@@ -3,12 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --white: #ffffff;
   --blue: #178fff;
   --blue-hover: #166fc3;
-}
-
-:root {
   --slate-50: #f4f7fa;
   --slate-50-hover: #e0e3e8;
   --slate-100: #edf0f6;
@@ -157,7 +153,7 @@ h1 {
 
 form {
   width: 240px;
-  background-color: var(--white);
+  background-color: white;
   padding: 30px;
 }
 
@@ -285,7 +281,7 @@ button.clear-button {
 
 button.save-button {
   border-color: var(--blue);
-  color: var(--white);
+  color: white;
   background-color: var(--blue);
 }
 
@@ -295,7 +291,7 @@ button.toggle-view-button {
   justify-content: center;
   padding: 12px 0px;
   width: 110px;
-  color: var(--white);
+  color: white;
   background-color: var(--blue);
   white-space: nowrap;
 }
@@ -303,7 +299,7 @@ button.toggle-view-button {
 button.toggle-view-button svg {
   height: 18px;
   width: 18px;
-  fill: var(--white);
+  fill: white;
 }
 
 button.toggle-view-button:hover {
@@ -356,13 +352,13 @@ button.clear-button:hover {
   --cv-width: calc(800px * var(--cv-resize));
   width: var(--cv-width);
   height: calc(var(--cv-width) * sqrt(2)); /* A4 aspect ratio */
-  background-color: var(--white);
+  background-color: white;
   overflow: hidden;
   font-size: calc(14px * var(--cv-resize));
 }
 
 .header-cv {
-  color: var(--white);
+  color: white;
   background-color: rgb(17, 109, 195);
   display: flex;
   flex-direction: column;
@@ -392,7 +388,7 @@ button.clear-button:hover {
 .header-cv-contact-item svg {
   width: calc(18px * var(--cv-resize));
   height: calc(18px * var(--cv-resize));
-  fill: var(--white);
+  fill: white;
   margin-right: calc(5px * var(--cv-resize));
 }
 
