@@ -218,6 +218,7 @@ textarea {
 
 textarea {
   resize: none;
+  height: 80px;
 }
 
 input:hover,
@@ -345,7 +346,7 @@ button.clear-button:hover {
 }
 
 .experience-form .dropdown-menu.open {
-  max-height: 700px;
+  max-height: 750px;
 }
 
 /* Cv section */
