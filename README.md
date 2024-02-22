@@ -1,5 +1,5 @@
 ![react](https://img.shields.io/badge/UI-React-149eca)
-![languages](https://img.shields.io/badge/languages-ts%2C%20html%2C%20css-blue)
+![language](https://img.shields.io/badge/Language-TypeScript-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
 # Make Your CV 📃
