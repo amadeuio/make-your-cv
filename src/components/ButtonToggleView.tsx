@@ -15,7 +15,7 @@ function ButtonToggleView({ showForm, toggleView }: ButtonToggleViewProps) {
         </>
       ) : (
         <>
-          <ArrowLeft /> Show Inputs
+          <ArrowLeft /> Show Editor
         </>
       )}
     </button>
