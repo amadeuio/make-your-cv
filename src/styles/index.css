@@ -216,6 +216,10 @@ textarea {
   transition: background-color 0.3s ease;
 }
 
+textarea {
+  resize: none;
+}
+
 input:hover,
 textarea:hover {
   background-color: var(--slate-50-hover);
