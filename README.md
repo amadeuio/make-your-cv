@@ -4,7 +4,7 @@
 
 # Make Your CV 📃
 
-One page CV builder web app.
+CV builder web app.
 
 ## Demo
 
@@ -17,8 +17,8 @@ One page CV builder web app.
 
 ## Features
 
-- Enter your information on the forms and the CV will be updated in real time
-- Expand each form to edit, collapse when desired
+- Enter your information in the forms and the CV will be updated in real time
+- Expand and collapse the forms
 - Drag-and-drop the forms to organize chronologically
 - Responsive: Enters 'Collapse Mode' on smaller screens
 - Download the CV in PDF format
