@@ -58,8 +58,8 @@ function App() {
             experienceArray,
             setExperienceArray,
           }}>
-          {(!isCollapsed || showForm) && <FormSection showForm={showForm} />}
-          {(!isCollapsed || !showForm) && <CvSection showForm={showForm} />}
+          {(!isCollapsed || showForm) && <FormSection />}
+          {(!isCollapsed || !showForm) && <CvSection />}
         </FormDataContext.Provider>
       </div>
     </div>
