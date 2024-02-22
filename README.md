@@ -1,4 +1,4 @@
-![react](https://img.shields.io/badge/React-149eca)
+![react](https://img.shields.io/badge/UI-React-149eca)
 ![languages](https://img.shields.io/badge/languages-ts%2C%20html%2C%20css-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -17,12 +17,10 @@ One page CV builder web app.
 
 ## Features
 
-User friendly and simple app.
-
-- Simply enter your information on the forms and the CV will be updated in real time
+- Enter your information on the forms and the CV will be updated in real time
 - Expand each form to edit, collapse when desired
-- Drag-and-drop the forms to organize cronologically
-- Responsive: Enters 'Collaps Mode' on smaller screens
+- Drag-and-drop the forms to organize chronologically
+- Responsive: Enters 'Collapse Mode' on smaller screens
 - Download the CV in PDF format
 
 ## Tech Stack
