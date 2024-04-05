@@ -7,6 +7,7 @@ import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 function HeaderForm() {
   const { headerObject, setHeaderObject } = useContext(FormDataContext)!;
+  const { fullName, email, phone, address, isOpen } = headerObject;
 
   const toggleDropdown = () => {
     setHeaderObject((prevHeader) => ({
@@ -29,8 +30,6 @@ function HeaderForm() {
     e.preventDefault();
     toggleDropdown();
   };
-
-  const { fullName, email, phone, address, isOpen } = headerObject;
 
   return (
     <form className="header-form">
