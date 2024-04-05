@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { FormDataContext } from "../App";
+import { useFormDataContext } from "../Context";
 import { EducationObject } from "../data/types";
-
 import LocationIcon from "../icons/LocationIcon";
 
 interface EducationItemProps {
@@ -31,7 +29,7 @@ function EducationItem({ educationObject }: EducationItemProps) {
 }
 
 function EducationCv() {
-  const { educationArray } = useContext(FormDataContext)!;
+  const { educationArray } = useFormDataContext();
 
   if (educationArray.length === 0) {
     return null;

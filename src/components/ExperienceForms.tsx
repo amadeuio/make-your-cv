@@ -1,22 +1,21 @@
-import { useContext, ChangeEvent, FormEvent } from "react";
-import { FormDataContext } from "../App";
+import { ChangeEvent, FormEvent } from "react";
+import { useFormDataContext } from "../Context";
 import { ExperienceObject } from "../data/types";
-
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
-
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 interface ExperienceFormProps {
   experienceObject: ExperienceObject;
-  setExperienceArray: React.Dispatch<React.SetStateAction<ExperienceObject[]>>;
 }
 
-function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceFormProps) {
+function ExperienceForm({ experienceObject }: ExperienceFormProps) {
   const { id, company, position, startDate, endDate, location, description, isOpen } =
     experienceObject;
+
+  const { setExperienceArray } = useFormDataContext();
 
   const toggleDropdown = () => {
     setExperienceArray((prevState) =>
@@ -136,7 +135,7 @@ function ExperienceForm({ experienceObject, setExperienceArray }: ExperienceForm
 }
 
 function ExperienceForms() {
-  const { experienceArray, setExperienceArray } = useContext(FormDataContext)!;
+  const { experienceArray, setExperienceArray } = useFormDataContext();
 
   const handleAddNew = () => {
     const newEducationEntry = {
@@ -186,10 +185,7 @@ function ExperienceForms() {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}>
-                      <ExperienceForm
-                        experienceObject={experienceObject}
-                        setExperienceArray={setExperienceArray}
-                      />
+                      <ExperienceForm experienceObject={experienceObject} />
                     </div>
                   )}
                 </Draggable>

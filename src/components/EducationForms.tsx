@@ -1,21 +1,19 @@
-import { useContext, ChangeEvent, FormEvent } from "react";
-import { FormDataContext } from "../App";
+import { ChangeEvent, FormEvent } from "react";
+import { useFormDataContext } from "../Context";
 import { EducationObject } from "../data/types";
-
 import { v4 as uuidv4 } from "uuid";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
-
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 interface EducationFormProps {
   educationObject: EducationObject;
-  setEducationArray: React.Dispatch<React.SetStateAction<EducationObject[]>>;
 }
 
-function EducationForm({ educationObject, setEducationArray }: EducationFormProps) {
+function EducationForm({ educationObject }: EducationFormProps) {
   const { id, school, qualification, startDate, endDate, location, isOpen } = educationObject;
+  const { setEducationArray } = useFormDataContext();
 
   const toggleDropdown = () => {
     setEducationArray((prevState) =>
@@ -126,7 +124,7 @@ function EducationForm({ educationObject, setEducationArray }: EducationFormProp
 }
 
 function EducationForms() {
-  const { educationArray, setEducationArray } = useContext(FormDataContext)!;
+  const { educationArray, setEducationArray } = useFormDataContext();
 
   const handleAddNew = () => {
     const newEducationEntry = {
@@ -173,10 +171,7 @@ function EducationForms() {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}>
-                      <EducationForm
-                        educationObject={educationObject}
-                        setEducationArray={setEducationArray}
-                      />
+                      <EducationForm educationObject={educationObject} />
                     </div>
                   )}
                 </Draggable>

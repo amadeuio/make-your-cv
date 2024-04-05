@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { FormDataContext } from "../App";
+import { useFormDataContext } from "../Context";
 import { ExperienceObject } from "../data/types";
-
 import LocationIcon from "../icons/LocationIcon";
 
 interface ExperienceItemProps {
@@ -36,7 +34,7 @@ function ExperienceItem({ experienceObject }: ExperienceItemProps) {
 }
 
 function ExperienceCv() {
-  const { experienceArray } = useContext(FormDataContext)!;
+  const { experienceArray } = useFormDataContext();
 
   if (experienceArray.length === 0) {
     return null;

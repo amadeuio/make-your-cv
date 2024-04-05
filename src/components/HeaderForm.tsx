@@ -1,12 +1,11 @@
-import { useContext, ChangeEvent, FormEvent } from "react";
-import { FormDataContext } from "../App";
-
+import { ChangeEvent, FormEvent } from "react";
+import { useFormDataContext } from "../Context";
 import Button from "./Button";
 import ExpandLessIcon from "../icons/ExpandLessIcon";
 import ExpandMoreIcon from "../icons/ExpandMoreIcon";
 
 function HeaderForm() {
-  const { headerObject, setHeaderObject } = useContext(FormDataContext)!;
+  const { headerObject, setHeaderObject } = useFormDataContext();
   const { fullName, email, phone, address, isOpen } = headerObject;
 
   const toggleDropdown = () => {

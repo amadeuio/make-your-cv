@@ -1,31 +1,11 @@
-import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
-import { HeaderObject, EducationObject, ExperienceObject } from "./data/types";
-import {
-  initialHeaderObject,
-  initialEducationArray,
-  initialExperienceArray,
-} from "./data/initialData";
+import { useState, useEffect } from "react";
 
 import FormSection from "./components/FormSection";
 import CvSection from "./components/CvSection";
 import ButtonToggleView from "./components/ButtonToggleView";
-
-interface FormDataContext {
-  headerObject: HeaderObject;
-  setHeaderObject: Dispatch<SetStateAction<HeaderObject>>;
-  educationArray: EducationObject[];
-  setEducationArray: Dispatch<SetStateAction<EducationObject[]>>;
-  experienceArray: ExperienceObject[];
-  setExperienceArray: Dispatch<SetStateAction<ExperienceObject[]>>;
-}
-
-export const FormDataContext = createContext<FormDataContext | undefined>(undefined);
+import { FormDataContextProvider } from "./Context";
 
 function App() {
-  const [headerObject, setHeaderObject] = useState(initialHeaderObject);
-  const [educationArray, setEducationArray] = useState(initialEducationArray);
-  const [experienceArray, setExperienceArray] = useState(initialExperienceArray);
-
   const [showForm, setShowForm] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 1250);
 
@@ -52,20 +32,12 @@ function App() {
         <h1>Make Your CV 📃</h1>
       </div>
 
-      <div className="main-content-container">
-        <FormDataContext.Provider
-          value={{
-            headerObject,
-            setHeaderObject,
-            educationArray,
-            setEducationArray,
-            experienceArray,
-            setExperienceArray,
-          }}>
+      <FormDataContextProvider>
+        <div className="main-content-container">
           {(!isCollapsed || showForm) && <FormSection />}
           {(!isCollapsed || !showForm) && <CvSection />}
-        </FormDataContext.Provider>
-      </div>
+        </div>
+      </FormDataContextProvider>
     </div>
   );
 }
