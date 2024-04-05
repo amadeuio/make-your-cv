@@ -1,6 +1,10 @@
 import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
-import { HeaderObject, EducationObject, ExperienceObject } from "./types";
-import { initialHeaderObject, initialEducationArray, initialExperienceArray } from "./initialData";
+import { HeaderObject, EducationObject, ExperienceObject } from "./data/types";
+import {
+  initialHeaderObject,
+  initialEducationArray,
+  initialExperienceArray,
+} from "./data/initialData";
 
 import FormSection from "./components/FormSection";
 import CvSection from "./components/CvSection";

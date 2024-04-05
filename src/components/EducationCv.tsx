@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FormDataContext } from "../App";
-import { EducationObject } from "../types";
+import { EducationObject } from "../data/types";
 
 import LocationIcon from "../icons/LocationIcon";
 
