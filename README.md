@@ -1,6 +1,5 @@
-![react](https://img.shields.io/badge/UI-React-149eca)
-![language](https://img.shields.io/badge/Language-TypeScript-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
+![Stack](https://img.shields.io/badge/Stack-React_|_TypeScript-149eca)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 # Make Your CV 📃
 
@@ -17,10 +16,10 @@ CV builder web app.
 
 ## Features
 
-- Enter your information in the forms and the CV will be updated in real time
+- Enter your information in the forms and the CV will be updated in real-time
 - Expand and collapse the forms
 - Drag-and-drop the forms to organize chronologically
-- Responsive: Enters 'Collapse Mode' on smaller screens
+- Responsive
 - Download the CV in PDF format
 
 ## Tech Stack
@@ -28,48 +27,49 @@ CV builder web app.
 - **UI Library:** React
 - **Languages:** TypeScript, CSS, HTML
 - **Build Tool:** Vite
-- **Dependencies:** react-beautiful-dnd, uuid, html2canvas, jspdf
+- **Dependencies:** uuid, html2canvas, jspdf
 
-## File Structure
+## Main Directories
 
-- `/src`: Contains the source code
+Located in `src`:
 
-  - `/src/components`: Individual UI components used throughout the application
-  - `/src/icons`: Components with SVG icons
-  - `/src/styles`: CSS styles
-  - `/src/App.tsx`: Main component responsible for managing state and rendering components of the whole application
-  - `/src/main.tsx`: Entry point for the React application
-  - `/src/initialData.tsx`: Initial placeholder data
-  - `/src/types.ts`: TypeScript type definitions for the data
+- `components`: React components
+- `icons`: Components with SVG icons
+- `styles`: CSS styles & reset
+- `App.tsx`: Main component responsible for managing state and rendering components of the app
+- `main.tsx`: Entry point for the React app
+- `initialData.ts`: Storage of initial placeholder data
+- `types.ts`: TypeScript type definitions for the data
 
-- `/docs`: Distribution files generated during the build, GitHub pages is reading the root of this directory
+Located in root:
 
-- `index.html`: Entry point for the application
+- `docs`: Distribution files generated during the build, GitHub pages is reading the root of this directory
+- `index.html`: Entry point for the app
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/amadeuio/make-your-cv
+git clone https://github.com/amadeuio/make-your-cv
 ```
 
 Go to the project directory
 
 ```bash
-  cd make-your-cv
+cd make-your-cv
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+npm install
 ```
 
 Start the server
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
 ## Acknowledgements
