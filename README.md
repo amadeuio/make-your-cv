@@ -34,12 +34,12 @@ CV builder web app.
 Located in `src`:
 
 - `components`: React components
-- `icons`: Components with SVG icons
-- `styles`: CSS styles & reset
+- `data`: Storage of initial data and its type definitions
+- `icons`: SVG icons components
+- `css`: CSS styles
+- `Context.tsx`: Context API provider component
 - `App.tsx`: Main component responsible for managing state and rendering components of the app
 - `main.tsx`: Entry point for the React app
-- `initialData.ts`: Storage of initial placeholder data
-- `types.ts`: TypeScript type definitions for the data
 
 Located in root:
 

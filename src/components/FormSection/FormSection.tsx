@@ -1,6 +1,6 @@
 import HeaderForm from "./HeaderForm";
-import EducationForms from "./EducationForms";
-import ExperienceForms from "./ExperienceForms";
+import EducationForms from "./EducationForms/EducationForms";
+import ExperienceForms from "./ExperienceForms/ExperienceForms";
 
 function FormSection() {
   return (

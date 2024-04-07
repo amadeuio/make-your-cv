@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-
-import FormSection from "./components/FormSection";
-import CvSection from "./components/CvSection";
-import ButtonToggleView from "./components/ButtonToggleView";
 import { FormDataContextProvider } from "./Context";
+import FormSection from "./components/FormSection/FormSection";
+import CvSection from "./components/CvSection/CvSection";
+import ButtonToggleView from "./components/common/ButtonToggleView";
 
 function App() {
   const [showForm, setShowForm] = useState(false);

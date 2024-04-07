@@ -1,7 +1,7 @@
-import { useFormDataContext } from "../Context";
-import MailIcon from "../icons/MailIcon";
-import PhoneIcon from "../icons/PhoneIcon";
-import LocationIcon from "../icons/LocationIcon";
+import { useFormDataContext } from "../../Context";
+import MailIcon from "../../icons/MailIcon";
+import PhoneIcon from "../../icons/PhoneIcon";
+import LocationIcon from "../../icons/LocationIcon";
 
 function HeaderCv() {
   const { headerObject } = useFormDataContext();

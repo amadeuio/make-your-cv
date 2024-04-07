@@ -1,5 +1,5 @@
-import ArrowLeft from "../icons/ArrowLeft";
-import ArrowRight from "../icons/ArrowRight";
+import ArrowLeft from "../../icons/ArrowLeft";
+import ArrowRight from "../../icons/ArrowRight";
 
 interface ButtonToggleViewProps {
   showForm: boolean;

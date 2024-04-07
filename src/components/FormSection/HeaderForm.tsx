@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent } from "react";
-import { useFormDataContext } from "../Context";
-import Button from "./Button";
-import ExpandLessIcon from "../icons/ExpandLessIcon";
-import ExpandMoreIcon from "../icons/ExpandMoreIcon";
+import { useFormDataContext } from "../../Context";
+import Button from "../common/Button";
+import ExpandLessIcon from "../../icons/ExpandLessIcon";
+import ExpandMoreIcon from "../../icons/ExpandMoreIcon";
 
 function HeaderForm() {
   const { headerObject, setHeaderObject } = useFormDataContext();

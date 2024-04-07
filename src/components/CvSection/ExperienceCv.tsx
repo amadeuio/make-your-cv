@@ -1,6 +1,6 @@
-import { useFormDataContext } from "../Context";
-import { ExperienceObject } from "../data/types";
-import LocationIcon from "../icons/LocationIcon";
+import { useFormDataContext } from "../../Context";
+import { ExperienceObject } from "../../data/types";
+import LocationIcon from "../../icons/LocationIcon";
 
 interface ExperienceItemProps {
   experienceObject: ExperienceObject;
@@ -36,17 +36,15 @@ function ExperienceItem({ experienceObject }: ExperienceItemProps) {
 function ExperienceCv() {
   const { experienceArray } = useFormDataContext();
 
-  if (experienceArray.length === 0) {
-    return null;
-  }
-
   return (
-    <div className="experience-container cv-container">
-      <h1>Experience</h1>
-      {experienceArray.map((experienceObject) => (
-        <ExperienceItem key={experienceObject.id} experienceObject={experienceObject} />
-      ))}
-    </div>
+    experienceArray.length && (
+      <div className="experience-container cv-container">
+        <h1>Experience</h1>
+        {experienceArray.map((experienceObject) => (
+          <ExperienceItem key={experienceObject.id} experienceObject={experienceObject} />
+        ))}
+      </div>
+    )
   );
 }
 

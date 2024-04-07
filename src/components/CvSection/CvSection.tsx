@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { useFormDataContext } from "../Context";
+import { useFormDataContext } from "../../Context";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import HeaderCv from "./HeaderCv";
 import EducationCv from "./EducationCv";
 import ExperienceCv from "./ExperienceCv";
-import DownloadIcon from "../icons/DownloadIcon";
+import DownloadIcon from "../../icons/DownloadIcon";
 
 interface CvProps {
   divRef: React.RefObject<HTMLDivElement>;

@@ -1,6 +1,6 @@
-import { useFormDataContext } from "../Context";
-import { EducationObject } from "../data/types";
-import LocationIcon from "../icons/LocationIcon";
+import { useFormDataContext } from "../../Context";
+import { EducationObject } from "../../data/types";
+import LocationIcon from "../../icons/LocationIcon";
 
 interface EducationItemProps {
   educationObject: EducationObject;
@@ -31,17 +31,15 @@ function EducationItem({ educationObject }: EducationItemProps) {
 function EducationCv() {
   const { educationArray } = useFormDataContext();
 
-  if (educationArray.length === 0) {
-    return null;
-  }
-
   return (
-    <div className="education-container cv-container">
-      <h1>Education</h1>
-      {educationArray.map((educationObject) => (
-        <EducationItem key={educationObject.id} educationObject={educationObject} />
-      ))}
-    </div>
+    educationArray.length && (
+      <div className="education-container cv-container">
+        <h1>Education</h1>
+        {educationArray.map((educationObject) => (
+          <EducationItem key={educationObject.id} educationObject={educationObject} />
+        ))}
+      </div>
+    )
   );
 }
 
