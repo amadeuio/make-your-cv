@@ -3,7 +3,7 @@
 
 # Make Your CV 📃
 
-CV builder web app.
+CV builder frontend web app.
 
 ## Demo
 

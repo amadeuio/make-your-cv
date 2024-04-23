@@ -119,6 +119,7 @@ h1 {
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: var(--slate-400);
+  background: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
