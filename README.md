@@ -11,7 +11,7 @@ CV builder frontend web app.
   <img src="public/screenshots/screenshot.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
-  <a href="https://amadeuio.github.io/make-your-cv">👉 Demo</a>
+  <a href="https://makeyourresumeapp.netlify.app">👉 Demo</a>
 </h2>
 
 ## Features
@@ -27,6 +27,7 @@ CV builder frontend web app.
 - **UI Library:** React
 - **Languages:** TypeScript, CSS, HTML
 - **Build Tool:** Vite
+- **Deployment:** Netlify
 - **Dependencies:** uuid, html2canvas, jspdf
 
 ## Main Directories
@@ -43,7 +44,6 @@ Located in `src`:
 
 Located in root:
 
-- `docs`: Distribution files generated during the build, GitHub pages is reading the root of this directory
 - `index.html`: Entry point for the app
 
 ## Run Locally
